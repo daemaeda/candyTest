@@ -1,0 +1,47 @@
+{% extends 'master.twig' %}
+
+{% block body %}
+
+    <h1>全てのほとんどの動きは/candy/app/controllers/RecipeController.phpにあります</h1>
+    <hr>
+    <h2>ページング こいつのフォーマットは/candy/src/Candy/themes/default.phpを変えればいいよ</h2>
+    <ul class="pagination">
+        {{ pager|raw }}
+    </ul>
+
+    <h2>便利なメソッド</h2>
+    <p>{{ baseUrl() }}</p>
+    <p>{{ siteUrl('recipe') }}</p>
+    <p>{{ siteUrl('recipe/hogehoge') }}</p>
+
+    <hr>
+
+    <p>RecipeControllerのindexメソッドへ投げる</p>
+    <form action="{{ siteUrl('recipe') }}" method="get">
+        <input type="text" value="" placeholder="例">
+    </form>
+
+    <hr>
+
+    <h2>とりあえず、検索画面で使いそうなやつループ</h2>
+
+    {% for recipe in recipes %}
+        <p>recipeテーブル</p>
+        <ul>
+            <li>id: <a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">{{ recipe.id }}←クリックすると詳細画面へ（showメソッド）</a></li>
+            <li>title: {{ recipe.title }}</li>
+            <li>clip: {{ recipe.clip }}</li>
+            <li>servings_for: {{ recipe.servings_for }}</li>
+            <li>thumb: {{ recipe.thumb }}</li>
+            <li>explain: {{ recipe.explain }}</li>
+            <li>point: {{ recipe.point }}</li>
+            <li>member_id: {{ recipe.member_id }}</li>
+        </ul>
+        <p>INNER JOIN Memberテーブル</p>
+        <ul>
+            <li>member.name: {{ recipe.member().getResults().name }}</li>
+        </ul>
+        <hr>
+    {% endfor %}
+
+{% endblock %}

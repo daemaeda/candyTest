@@ -1,0 +1,9 @@
+vendor
+dev
+app/storage/cache/*
+
+.DS_Store
+.idea/
+
+public/video/*
+public/thumb/*

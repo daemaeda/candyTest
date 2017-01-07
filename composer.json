@@ -1,0 +1,61 @@
+{
+    "name": "daemaeda/candy",
+    "description": "",
+    "keywords": ["framework", "slim", "mvc", "eloquent", "twig"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ema maeda",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "php": ">= 5.3.0",
+        "slim/slim": "2.4.*",
+        "slim/views":"0.1.2",
+        "twig/twig": "1.*",
+        "twig/extensions": "*",
+        "volnix/csrf": "~1.0",
+        "itsgoingd/slim-facades": "dev-master",
+        "illuminate/database" : "4.*",
+        "illuminate/validation": "4.*",
+        "illuminate/translation": "4.*",
+        "Modularr/Flexible-PHP-Pagination": "2.0.1",
+        "cartalyst/sentry" : "2.*",
+        "kohkimakimoto/lib-migration": "1.*",
+        "ircmaxell/password-compat": "1.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "" : [
+                "src/",
+                "app/controllers/",
+                "app/models/",
+                "app/middlewares/",
+                "app/modules/"
+            ]
+        }
+    },
+    "scripts": {
+        "setup": [
+            "chmod -R 777 app/storage/",
+            "php vendor/kohkimakimoto/lib-migration/bin/phpmigrate up"
+        ],
+        "db-up": [
+            "php vendor/kohkimakimoto/lib-migration/bin/phpmigrate up"
+        ],
+        "db-down": [
+            "php vendor/kohkimakimoto/lib-migration/bin/phpmigrate down"
+        ],
+        "test-delete": [
+            "sudo chmod -R 777 app/public/video",
+            "sudo chmod -R 777 app/public/thumb",
+            "rm -rf app/public/video/",
+            "rm -rf app/public/thumb/"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev"
+}

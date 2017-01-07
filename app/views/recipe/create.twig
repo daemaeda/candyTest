@@ -1,0 +1,72 @@
+{% extends 'master.twig' %}
+
+{% block body %}
+<div class="contents">
+    <article>
+        <section>
+            <h2 class="ttl02">レシピ入力画面</h2>
+            <form action="{{siteUrl('recipe')}}" method="post" enctype="multipart/form-data">
+                <table class="tblStyle01">
+                    <tr class="recipeTitle">
+                        <th>レシピタイトル</th>
+                        <td><input type="text" name="title" value="{{ flash.input.title }}"></td>
+                        <p class="errorMessage"> {{ flash.errors.title|first }}</p>
+                    </tr>
+                    <tr class="recipeVideo">
+                        <th>動画</th>
+                        <td><input type="file" name="clip" accept="video/*"></td>
+                        <p class="errorMessage"> {{ flash.errors.clip|first }}</p>
+                    </tr>
+                    <tr class="recipeExplain">
+                        <th>簡単な説明</th>
+                        <td><textarea name="explain" rows="3">{{ flash.input.explain }}</textarea></td>
+                        <p class="errorMessage"> {{ flash.errors.explain|first }}</p>
+                    </tr>
+                    <tr class="recipeIngredient">
+                        <th>材料</th>
+                        <td>
+                            <input type="text" name="servings_for" placeholder="何人分" value="{{ flash.input.servings_for }}">
+                            <dl>
+                                {% if flash.ingredients | length > 0 %}
+                                    {% for ingredient in flash.ingredients %}
+                                        <dt><input type="text" name="name[]" value="{{ ingredient.name }}" placeholder="材料"></dt>
+                                        <dd><input type="text" name="quantity[]" value="{{ ingredient.quantity }}" placeholder="分量"></dd>
+                                        <dd><input type="button" name="" value="↑"><input type="button" name="" value="↓"></dd>
+                                    {% endfor %}
+                                {% else %}
+                                    {% for i in 0..3 %}
+                                        <dt><input type="text" name="name[]" value="" placeholder="材料"></dt>
+                                        <dd><input type="text" name="quantity[]" value="" placeholder="分量"></dd>
+                                        <dd><input type="button" name="" value="↑"><input type="button" name="" value="↓"></dd>
+                                    {% endfor %}
+                                {% endif %}
+                            </dl>
+                        </td>
+                    </tr>
+                    <tr class="recipePoint">
+                        <th>コツ</th>
+                        <td><input type="text" name="point" value="{{ flash.input.point }}"></td>
+                        <p class="errorMessage"> {{ flash.errors.point|first }}</p>
+                    </tr>
+                    <tr class="recipeMistake">
+                        <th>失敗談</th>
+                        <td><input type="text" name="mistake" value="{{ flash.input.mistake }}"></td>
+                        <p class="errorMessage"> {{ flash.errors.recipeMistake|first }}</p>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="登録">
+                        </td>
+                    </tr>
+                </table>
+                <div class="btmnavi">
+                    <ul>
+                        <li><a href="">キャンセル</a></li>
+                        <li><a href="">保存</a></li>
+                    </ul>
+                </div>
+            </form>
+        </section>
+    </article>
+</div>
+{% endblock %}

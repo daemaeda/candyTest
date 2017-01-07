@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes...
+        RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+        # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+SetEnv CANDY_HOST localhost
+SetEnv CANDY_NAME candy
+SetEnv CANDY_USER candy
+SetEnv CANDY_PASS candy
+SetEnv CANDY_DNS mysql:dbname=candy;host=localhost

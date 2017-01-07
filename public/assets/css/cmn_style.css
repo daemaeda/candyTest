@@ -1,0 +1,687 @@
+@charset 'utf-8';
+
+body {
+	color: #333;
+	font-size: 14px;
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", "メイリオ", "Osaka", "MS PGothic", arial, helvetica, sans-serif;
+	border-top: solid 5px #F78275;
+	line-height: 1.3;
+	counter-reset: step;
+}
+a {
+	color: #333;
+	text-decoration: none;
+	cursor: pointer;
+}
+a:hover {
+	opacity: 0.8;
+	transition: 0.4s;
+}
+ul:after,
+header:after,
+section:after,
+.clearfix:after,
+.clipList li:after,
+.clipList video:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.pc { display: inherit; }
+.sp { display: none; }
+
+@media only screen and (max-width: 768px) {
+	body {
+		font-size: 12px;
+	}
+	img {
+		width: 100%;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.pc { display: none; }
+	.sp { display: block; }
+}
+header {
+	padding: 10px 0;
+}
+#wrapper, header, footer {
+	width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+header h1 {
+	width: 240px;
+	margin: 10px 0;
+	font-size: 0;
+	padding: 0 10% 0 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+header .headerBox {
+	width: 150px;
+	text-align: center;
+	letter-spacing: -0.4em;
+	font-size: 10px;
+	display: inline-block;
+	vertical-align: middle;
+	float: right;
+}
+header .login {
+	width: 48px;
+	margin-right: 50px;
+	letter-spacing: normal;
+	white-space: nowrap;
+	float: left;
+	display: block;
+}
+header .headerBox img {
+	display: block;
+}
+header .menu {
+	width: 48px;
+	letter-spacing: normal;
+	white-space: nowrap;
+	float: left;
+	display: block;
+}
+.gnavi {
+	width: 100%;
+	border-top: solid 1px #F78275;
+	display: none;
+}
+.mainVisual {
+	width: 1024px;
+	height: 240px;
+	padding: 30px 0;
+	background: url(../img/357200-admin.jpg) no-repeat;
+	background-size: cover;
+}
+.mainVisual .searchBox {
+	width: 900px;
+	margin: 0 auto;
+	padding: 30px;
+	color: #fff;
+	background-color:rgba(0,0,0,0.5);
+}
+.searchBox p {
+	width: 150px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.searchBox span {
+}
+.breadcrumb {
+	padding: 5px;
+	vertical-align: middle;
+	border-top: solid 2px #f9cdc5;
+	border-bottom: solid 2px #f9cdc5;
+}
+.breadcrumb ul li {
+	display: inline-block;
+}
+.breadcrumb ul li + li:before {
+	content: '＞';
+	display: inline-block;
+	margin: 0 3px;
+	font-size: 10px;
+	vertical-align: middle;
+}
+.ui-navbar li:last-child .ui-btn {
+	margin-right: 0;
+}
+.ui-field-contain {
+	width: 100%;
+	margin: 0;
+	font-size: 16px;
+	background-color: #fff;
+}
+.ui-field-contain label {
+	width: 100px;
+	background: #fff!important;
+	border:none;
+}
+
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 768px) {
+	#wrapper {
+		width: 100%;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	header {
+		padding: 2% 0 0;
+	}
+	header h1 {
+		width: 60%;
+		margin: 10px 0;
+		font-size: 0;
+		padding: 0 10% 0 0;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	header h1 img {
+		max-width: 240px;
+		min-width: 120px;
+	}
+	header .headerBox {
+		width: 28%;
+		text-align: center;
+		letter-spacing: -0.4em;
+		font-size: 10px;
+		display: inline-block;
+		vertical-align: middle;
+		float: none;
+	}
+	header .login {
+		width: 40%;
+		margin-right: 10%;
+		letter-spacing: normal;
+		white-space: nowrap;
+		float: left;
+		display: block;
+	}
+	header .headerBox img {
+		max-width: 32px;
+		display: block;
+	}
+	header .menu {
+		width: 40%;
+		letter-spacing: normal;
+		white-space: nowrap;
+		float: left;
+		display: block;
+	}
+	.gnavi {
+		width: 100%;
+		border-top: solid 1px #F78275;
+		clear: both;
+	}
+	.gnavi > ul > li > a {
+		display: block;
+		color: #333;
+		text-decoration: none;
+		border-bottom: 1px solid #F78275;
+		padding: 10px 12px;
+		position: relative;
+	}
+	/*.gnavi > ul > li > a:hover {
+		background-color: #F78275;
+	}*/
+	.gnavi > ul > li > a:after,
+	.gnavi > ul > li > a.active:after {
+		font-size: 12px;
+		position: absolute;
+		right: 12px;
+		top: 13px;
+		color: #F78275;
+	}
+	.gnavi > ul > li > a:after { content: '▼'; }
+	.gnavi > ul > li > a.active:after { content: '▲'; }
+
+	.gnavi > ul > li > ul {
+		display: none;
+	}
+	.gnavi > ul > li > ul > li > a {
+		display: block;
+		color: #333;
+		background-color: #fff;
+		border-left: 3px solid #F78275;
+		border-bottom: 1px solid #F78275;
+		padding: 6px 12px;
+		position: relative;
+	}
+	.gnavi > ul > li > ul > li > a:hover {
+		background-color: #F78275;
+	}
+	.gnavi > ul > li > ul {
+		width: 100%;
+	}
+	.gnavi > ul > li > ul > li {
+		box-sizing: border-box;
+		width: 50%;
+		float: left;
+		background-color: #F78275;
+	}
+	.mainVisual {
+		display: none;
+	}
+	.breadcrumb {
+		padding: 5px;
+		vertical-align: middle;
+		border-top: solid 2px #f9cdc5;
+		border-bottom: solid 2px #f9cdc5;
+	}
+	.breadcrumb ul li {
+		display: inline-block;
+	}
+	.breadcrumb ul li + li:before {
+		content: '＞';
+		display: inline-block;
+		margin: 0 3px;
+		font-size: 10px;
+		vertical-align: middle;
+	}
+
+/*=========================================
+	.tagList
+=========================================*/
+	.tagList {
+		padding: 8px 10px;
+	}
+	.tagList h2 {
+		margin-bottom: 10px;
+	}
+	.tagList li {
+		padding: 5px;
+		background-color: #ffd6ad;
+		float: left;
+	}
+	.tagList li + li {
+		margin-left: 10px;
+	}
+	.tagList li:before {
+		content: '●';
+		margin-right: 3px;
+		color: #fff;
+		font-size: 10px;
+	}
+	video {
+		width: 100%;
+		margin-bottom: -2px;
+	}
+	section {
+		border-top: solid 1px #F78275;
+		border-bottom: solid 1px #F78275;
+		box-shadow: 0 1px 0 #fae5e1 inset;
+	}
+
+/*=========================================
+	.ttl
+=========================================*/
+
+	.ttl01 {
+		padding: 0 0 10px;
+		font-size: 16px;;
+		overflow: hidden;
+	}
+	.ttl02 {
+		padding: 3%;
+		font-size: 14px;
+		border-bottom: solid 1px #f9cdc5;
+		overflow: hidden;
+	}
+
+	.clipInfo {
+		padding: 10px 3%;
+		overflow: hidden;
+	}
+	.clipInfo a {
+		display: inline-block;
+	}
+	.userIcon {
+		width: 20px; 
+		height: 20px;
+		margin-right: 5px;
+		border: solid 1px #aaa;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.clipInfo .userName {
+		display: inline-block;
+	}
+	.clipInfo .play {
+		float: right;
+		margin: 4px 0 15px;
+	}
+	.clipInfo .favoBtn {
+		margin: 0 10px 0 0;
+		text-align: center;
+		border: solid 1px #aaa;
+		border-radius: 5px;
+		display: block;
+		float: left;
+	}
+	.clipInfo .favoBtn a {
+		clear: both;
+		padding: 5px 4px 5px 3px;
+		display: block;
+	}
+	.clipInfo .favoBtn span {
+		font-size: 11px;
+		clear: both;
+	}
+	.clipInfo .favoBtn span:before {
+		content: '';
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		margin-right: 8px;
+		background: url(../img/favo_off.png) no-repeat;
+		background-size: contain;
+		vertical-align: middle;
+	}
+	.clipInfo .favoCount {
+		margin: 8px 0 0;
+		font-size: 10px;
+		float: left;
+	}
+	.clipInfo .dlBtn {
+		clear: both;
+		margin: 0 10px 0 0;
+		text-align: center;
+		border: solid 1px #aaa;
+		border-radius: 5px;
+		display: block;
+		float: left;
+	}
+	.clipInfo .dlBtn a {
+		clear: both;
+		padding: 5px;
+		display: block;
+	}
+	.clipInfo .dlBtn span {
+		font-size: 11px;
+		clear: both;
+	}
+	.recipeInfo {
+		padding: 5% 3%;
+	}
+
+/*=========================================
+	recipe
+=========================================*/
+
+	.description {
+		line-height: 1.4;
+	}
+	.ingredient .ttl02 span {
+		font-size: 12px;
+	}
+	.ingredient dt,
+	.ingredient dd {
+		width: 47%;
+		padding: 3% 0;
+		float: left;
+		border-bottom: dotted 1px #ccc;
+	}
+	.ingredient dt:last-of-type,
+	.ingredient dd:last-of-type {
+		border: none;
+	}
+	.ingredient dt {
+		padding-left: 3%;
+	}
+	.ingredient dd {
+		padding-right: 3%;
+		text-align: right;
+	}
+	.recipeStep ol li {
+		display: flex;
+		list-style: none;
+		padding: 5% 3%;
+		font-size: 14px;
+		line-height: 1.5;
+	}
+	.recipeStep ol li:before {
+		counter-increment: step;
+		content: counter(step);
+		display: inline-block;
+		margin-right: 1em;
+	}
+	.recipeStep ol li span.recipeTxt {
+		padding-right: 1em;
+		flex: 1;
+	}
+	.recipeStep ol li span.recipeImg img {
+		width: 100px;
+	}
+	.recipeStep ol li + li {
+		border-top: solid 1px #ccc;
+	}
+	.point h2 + p,
+	.mistake h2 + p {
+		padding: 5% 3%;
+	}
+
+/*=========================================
+	.hotClip
+=========================================*/
+
+	.hotClip {
+		padding-bottom: 5%;
+	}
+	.hotClip .videoBox {
+		position: relative;
+	}
+	.hotClip .clipInfo {
+		width: 100%;
+		position: absolute;
+		bottom: 2px;
+		color: #fff;
+		background-color: rgba(0,0,0,0.5);
+	}
+	.hotClip .clipInfo .clipTitle {
+		margin-bottom: 5px;
+		font-size: 16px;
+	}
+	.hotClip .clipInfo .userName {
+		color: #fff;
+	}
+
+/*=========================================
+	.clipList
+=========================================*/
+	.clipList .searchResult {
+	}
+	.clipList .paging {
+		float: right;
+		margin-top: -20px;
+	}
+
+	.clipList li {
+		overflow: hidden;
+		position: relative;
+	}
+	.clipList li:after {
+		content: url(../img/next.png);
+		position: absolute;
+		right: 5px;
+		top: 43%;
+	}
+	.clipList li + li {
+		border-top: solid 1px #ccc;
+	}
+	.clipList li a {
+		padding: 3%;
+		overflow: hidden;
+		display: block;
+	}
+	.clipList .videoBox {
+		float: left;
+		position: relative;
+	}
+	.clipList video {
+		width: 109px;
+	}
+	.clipList .favoCount,
+	.clipList .time {
+		position: absolute;
+		bottom: 5px;
+	    padding: 0 3px;
+		color: #fff;
+		font-size: 10px;
+		background-color: rgba(255,255,255,0.4);
+	}
+	.clipList .favoCount {
+		left: 3px;
+	} 
+	.clipList .time {
+		right: 3px;
+	}
+	.clipList .clipInfo {
+		width: 54%;
+		padding: 0 3%;
+		float: left;
+	}
+	.clipList .clipInfo .clipTitle {
+		color: #de9f93;
+		font-weight: bold;
+		font-size: 14px;
+	}
+	.clipList .clipInfo .clipName {
+		margin: 5px 0 0;
+	}
+	.clipList .play {
+		float: none;
+		margin: 5px 0 0;
+	}
+	.clipList .uploadDay {
+		margin-top: 10px;
+		font-size: 12px;
+		color: #aaa;
+	}
+
+	.commentList li {
+		padding: 3%;
+	}
+	.commentList li + li {
+		border-top: solid 1px #ccc;
+	}
+	.commentList li a {
+		display: inline-block;
+	}
+	.commentList .comment {
+		margin-top: 5px;
+	}
+	.commentList a.reply {
+		margin-left: 10px;
+	}
+	.commentList a.reply:before {
+		content: '>';
+	}
+	.commentList li.reply {
+		background-color: #eee;
+	}
+	.commentList li.reply .replyTo {
+		margin-bottom: 10px;
+		font-weight: bold;
+		display: block;
+	}
+	.commentList .reply .comment {
+		font-size: 12px;
+	}
+
+	.tblStyle01 {
+		width: 100%;
+		margin-bottom: 100px;
+	}
+	.tblStyle01 th {
+		padding: 5px;
+		display: block;
+		background-color: #eee;
+	}
+	.tblStyle01 td {
+		padding: 5px;
+		vertical-align: top;
+		display: block;
+	}
+	.tblStyle01 dl {
+		width: 100%;
+		margin-top: 3%;
+		border-top: solid 1px #ccc;
+		overflow: hidden;
+	}
+	.tblStyle01 dt,
+	.tblStyle01 dd {
+		margin-top: 3%;
+		float: left;
+	}
+	.tblStyle01 dt {
+		width: 70%;
+		margin-right: 2%;
+	}
+	.tblStyle01 dd {
+		width: 28%;
+	}
+	.tblStyle01 dd + dd {
+		width: 100%;
+		padding: 0 0 3%;
+		border-bottom: solid 1px #ccc;
+	}
+	.tblStyle01 dd + dd input {
+		width: 30px;
+		margin: 0 10px;
+	}
+	.tblStyle01 dd + dd:after {
+		clear: left;
+	}
+	.tblStyle01 input,
+	.tblStyle01 textarea {
+		width: 100%;
+		padding: 5px;
+		box-sizing: border-box;
+	}
+	.tblStyle01 textarea {
+		resize: none;
+	}
+	.btmnavi {
+		width: 96%;
+		height: 30px;
+		padding: 2%;
+		position: fixed;
+		bottom: 0;
+		border-top: solid 3px pink;
+		background-color: #fff;
+	}
+	.btmnavi li {
+		float: left;
+	}
+	.btmnavi li:last-child {
+		float: right;
+	}
+	.btmnavi li a {
+		padding: 8px 15px;
+		border: solid 1px #ccc;
+		border-radius: 5px;
+		display: block;
+	}
+	footer {
+		padding: 10px 0;
+		color: #fff;
+		background-color: #F78275;
+	}
+	footer p {
+		text-align: center;
+	}
+	.mypageHeader {
+		position: relative;
+	}
+	.mypageHeader img {
+		width: 100%;
+	}
+	.userProfile {
+		padding: 3%;
+	}
+	.userProfile .profile {
+		padding: 15px 0 0;
+	}
+	.followBtn {
+		clear: both;
+		margin: 0 3% 15px;
+		text-align: center;
+		border: solid 1px #aaa;
+		border-radius: 5px;
+		display: block;
+	}
+	.followBtn  a {
+		clear: both;
+		padding: 5px;
+		display: block;
+	}
+	.followBtn  span {
+		font-size: 11px;
+		clear: both;
+	}
+}

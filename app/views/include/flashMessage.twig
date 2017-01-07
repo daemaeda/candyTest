@@ -1,0 +1,13 @@
+{% if flash.messageError %}
+<div class="alert alert-danger alert-dismissable" style="margin-top: 25px">
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+    {{ flash.messageError }}
+</div>
+{% endif %}
+
+{% if flash.messageSuccess %}
+<div class="alert alert-success alert-dismissable" style="margin-top: 25px">
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+    {{ flash.messageSuccess }}
+</div>
+{% endif %}
