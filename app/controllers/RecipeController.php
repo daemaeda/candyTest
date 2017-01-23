@@ -19,6 +19,8 @@ Class RecipeController extends Controller
 
         // ページングのリンク
         $page = (int)Input::get('page');
+        $keyword = Input::get('keyword');
+        $aryKeyword = preg_split('/[　 ]/', $keyword);
 
         // これでassetsフォルダにあるcss呼べる
         $this->loadCss('loadcss.css');
@@ -26,18 +28,21 @@ Class RecipeController extends Controller
         // レシピテーブル（ORM）
         $Recipe = new Recipe();
         try {
-            $findRecipes = $Recipe->newQuery()->orderBy('created_at', 'desc');
+            $findRecipes = $Recipe->newQuery();
+            foreach ($aryKeyword as $value) {
+                $findRecipes->orWhere('title', 'like', '%'.$value.'%');
+            }
+            $findRecipes->orderBy('created_at', 'desc')->get();
             $this->data['recipes'] = $Recipe->findByQueryPerPage($findRecipes, $page);
                 $this->data['pager'] = $Recipe->paginationNav((int)$page, $this->siteUrl('recipe'))
                     ->get_html(PAGING_THEMES_PATH);
+            $this->data['keyword'] = $keyword;
         } catch (\SQLiteException $e) {
             App::flash('messageError', "データベースエラーが発生しました。管理者にお問い合わせください。");
             Response::redirect($this->siteUrl('report'));
         }
-
         // /candy/app/views/recipe/index.twigをいじれば変わるよ
         View::display('recipe/index.twig', $this->data);
-
         // header footerはincludeフォルダの中にある
     }
 
