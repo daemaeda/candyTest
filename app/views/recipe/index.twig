@@ -2,6 +2,7 @@
 
 {% block body %}
 
+<!--
     <h1>全てのほとんどの動きは/candy/app/controllers/RecipeController.phpにあります</h1>
     <hr>
     <h2>ページング こいつのフォーマットは/candy/src/Candy/themes/default.phpを変えればいいよ</h2>
@@ -14,16 +15,15 @@
     <p>{{ siteUrl('recipe') }}</p>
     <p>{{ siteUrl('recipe/hogehoge') }}</p>
 
-    <hr>
-
     <p>RecipeControllerのindexメソッドへ投げる</p>
+
+
+<h2>とりあえず、検索画面で使いそうなやつループ</h2>
+-->
+
     <form action="{{ siteUrl('recipe') }}" method="get">
-        <input type="text" value="" placeholder="例">
+        <input type="text" value="{{ keyword }}" placeholder="例" name="keyword">
     </form>
-
-    <hr>
-
-    <h2>とりあえず、検索画面で使いそうなやつループ</h2>
 
     {% for recipe in recipes %}
         <p>recipeテーブル</p>
