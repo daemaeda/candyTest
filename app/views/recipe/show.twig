@@ -66,8 +66,6 @@
             </dl>
         </section>
         <section class="recipeStep">
-        <p>{{ recipe.explain }}</p>
-        <section class="recipeStep">
             <h2 class="ttl02">説明</h2>
             <p>{{ recipe.explain }}</p>
         </section><section class="recipeStep">
@@ -107,70 +105,20 @@
             <p>{{ recipe.mistake }}</p>
         </section>
         <section class="comment">
-            <h2 class="ttl02">感想や質問(5件)</h2>
+            <h2 class="ttl02">感想や質問({{ recipe.review().getResults().count }}件)</h2>
             <div class="commentList">
                 <ul>
+                    {% for review in recipe.review().getResults() %}
                     <li>
-                        <a href="mypage.php">
+                        <a href="{{ siteUrl('mypage') }}/{{ review.member_id }}">
                             <div class="userIcon"><img src="img/icon.png" alt=""></div>
-                            <span class="userName">kakiku</span>
+                            <span class="userName">{{ review.member().getResults().name }}</span>
                         </a>
-                        <a href="" class="reply">返信</a>
                         <p class="comment">
-                            <?= $comment ?>
+                            {{ review.comment }}
                         </p>
                     </li>
-                    <li class="reply">
-                        <span class="replyTo">＞＞kakikuさん</span>
-                        <a href="mypage.php">
-                            <div class="userIcon"><img src="img/icon.png" alt=""></div>
-                            <span class="userName">あいうえお</span>
-                        </a>
-                        <a href="" class="reply">返信</a>
-                        <p class="comment">
-                            <?= $comment ?>
-                        </p>
-                    </li><!--
-						<li>
-							<a href="mypage.php">
-								<div class="userIcon"><img src="img/icon.png" alt=""></div>
-								<span class="userName">sashisu</span>
-							</a>
-							<a href="" class="reply">返信</a>
-							<p class="comment">
-								おいしかったでーーーー～～～～～～～～～～
-							</p>
-						</li>
-						<li>
-							<a href="mypage.php">
-								<div class="userIcon"><img src="img/icon.png" alt=""></div>
-								<span class="userName">tachitsu</span>
-							</a>
-							<a href="" class="reply">返信</a>
-							<p class="comment">
-								おいしかったでーーーー～～～～～～～～～～
-							</p>
-						</li>
-						<li>
-							<a href="mypage.php">
-								<div class="userIcon"><img src="img/icon.png" alt=""></div>
-								<span class="userName">naninu</span>
-							</a>
-							<a href="" class="reply">返信</a>
-							<p class="comment">
-								おいしかったでーーーー～～～～～～～～～～
-							</p>
-						</li>
-						<li>
-							<a href="mypage.php">
-								<div class="userIcon"><img src="img/icon.png" alt=""></div>
-								<span class="userName">あいうえお</span>
-							</a>
-							<a href="" class="reply">返信</a>
-							<p class="comment">
-								おいしかったでーーーー～～～～～～～～～～
-							</p>
-						</li>-->
+                    {% endfor %}
                 </ul>
             </div>
         </section>

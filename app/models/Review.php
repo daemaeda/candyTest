@@ -6,4 +6,9 @@ class Review extends Model {
 
     protected $table = 'review';
     protected $fillable = ['recipe_id', 'review_no', 'reply_id', 'comment', 'member_id'];
+
+    public function member()
+    {
+        return $this->belongsTo('Member');
+    }
 }
