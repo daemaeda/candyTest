@@ -9,7 +9,7 @@
                 <table class="tblStyle01">
                     <tr class="recipeTitle">
                         <th>レシピタイトル</th>
-                        <td><input type="text" name="title" value="{{ flash.input.title }}"></td>
+                        <td><input type="text" name="title" value="{{ flash.input.title|default('レシピタイトル') }}"></td>
                         <p class="errorMessage"> {{ flash.errors.title|first }}</p>
                     </tr>
                     <tr class="recipeVideo">
@@ -19,13 +19,13 @@
                     </tr>
                     <tr class="recipeExplain">
                         <th>簡単な説明</th>
-                        <td><textarea name="explain" rows="3">{{ flash.input.explain }}</textarea></td>
+                        <td><textarea name="explain" rows="3">{{ flash.input.explain|default('説明説明説明') }}</textarea></td>
                         <p class="errorMessage"> {{ flash.errors.explain|first }}</p>
                     </tr>
                     <tr class="recipeIngredient">
                         <th>材料</th>
                         <td>
-                            <input type="text" name="servings_for" placeholder="何人分" value="{{ flash.input.servings_for }}">
+                            <input type="text" name="servings_for" placeholder="何人分" value="{{ flash.input.servings_for|default('３人分') }}">
                             <dl>
                                 {% if flash.ingredients | length > 0 %}
                                     {% for ingredient in flash.ingredients %}
@@ -35,8 +35,8 @@
                                     {% endfor %}
                                 {% else %}
                                     {% for i in 0..3 %}
-                                        <dt><input type="text" name="name[]" value="" placeholder="材料"></dt>
-                                        <dd><input type="text" name="quantity[]" value="" placeholder="分量"></dd>
+                                        <dt><input type="text" name="name[]" value="小麦" placeholder="材料"></dt>
+                                        <dd><input type="text" name="quantity[]" value="300g" placeholder="分量"></dd>
                                         <dd><input type="button" name="" value="↑"><input type="button" name="" value="↓"></dd>
                                     {% endfor %}
                                 {% endif %}
@@ -45,12 +45,12 @@
                     </tr>
                     <tr class="recipePoint">
                         <th>コツ</th>
-                        <td><input type="text" name="point" value="{{ flash.input.point }}"></td>
+                        <td><input type="text" name="point" value="{{ flash.input.point|default('コツ') }}"></td>
                         <p class="errorMessage"> {{ flash.errors.point|first }}</p>
                     </tr>
                     <tr class="recipeMistake">
                         <th>失敗談</th>
-                        <td><input type="text" name="mistake" value="{{ flash.input.mistake }}"></td>
+                        <td><input type="text" name="mistake" value="{{ flash.input.mistake|default('失敗談') }}"></td>
                         <p class="errorMessage"> {{ flash.errors.recipeMistake|first }}</p>
                     </tr>
                     <tr>

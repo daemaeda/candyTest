@@ -362,6 +362,18 @@ header .menu {
 		background-size: contain;
 		vertical-align: middle;
 	}
+
+	.clipInfo .favoBtn .on span:before {
+		content: '';
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		margin-right: 8px;
+		background: url(../img/favo_on.png) no-repeat;
+		background-size: contain;
+		vertical-align: middle;
+	}
+
 	.clipInfo .favoCount {
 		margin: 8px 0 0;
 		font-size: 10px;

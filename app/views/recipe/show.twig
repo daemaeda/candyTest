@@ -3,7 +3,7 @@
 {% block body %}
 <div class="breadcrumb">
     <ul>
-        <li><a href="index.php">TOP</a></li>
+        <li><a href="index.php">TOP{{ fav }}</a></li>
         <li><a href="search_result.php">チョコレート</a></li>
         <li><a href="">チョコレートクッキー</a></li>
     </ul>
@@ -33,17 +33,17 @@
                     <span>views</span>
                 </div>
                 <div class="dlBtn">
-                    <a href="">
+                    <a href="#">
                         <span>レシピを保存</span>
                     </a>
                 </div>
                 <div class="favoBtn">
-                    <a href="">
+                    <a data-member="{{ userId }}" data-recipe="{{ recipe.id }}" class="toggleFavorite {% if favorite %}on{% endif %}" href="#">
                         <span>お気に入りに保存</span>
                     </a>
                 </div>
                 <div class="favoCount">
-                    <span>0</span>
+                    <span class="loves">{{ loves|default("0") }}</span>
                     <span>loves!</span>
                 </div>
             </div>
@@ -65,8 +65,6 @@
                 <!-- $i_name $quantity -->
             </dl>
         </section>
-        <section class="recipeStep">
-        <p>{{ recipe.explain }}</p>
         <section class="recipeStep">
             <h2 class="ttl02">説明</h2>
             <p>{{ recipe.explain }}</p>
@@ -107,70 +105,20 @@
             <p>{{ recipe.mistake }}</p>
         </section>
         <section class="comment">
-            <h2 class="ttl02">感想や質問(5件)</h2>
+            <h2 class="ttl02">感想や質問({{ recipe.review().getResults().count }}件)</h2>
             <div class="commentList">
                 <ul>
+                    {% for review in recipe.review().getResults() %}
                     <li>
-                        <a href="mypage.php">
+                        <a href="{{ siteUrl('user') }}/{{ review.member_id }}">
                             <div class="userIcon"><img src="img/icon.png" alt=""></div>
-                            <span class="userName">kakiku</span>
+                            <span class="userName">{{ review.member().getResults().name }}</span>
                         </a>
-                        <a href="" class="reply">返信</a>
                         <p class="comment">
-                            <?= $comment ?>
+                            {{ review.comment }}
                         </p>
                     </li>
-                    <li class="reply">
-                        <span class="replyTo">＞＞kakikuさん</span>
-                        <a href="mypage.php">
-                            <div class="userIcon"><img src="img/icon.png" alt=""></div>
-                            <span class="userName">あいうえお</span>
-                        </a>
-                        <a href="" class="reply">返信</a>
-                        <p class="comment">
-                            <?= $comment ?>
-                        </p>
-                    </li><!--
-						<li>
-							<a href="mypage.php">
-								<div class="userIcon"><img src="img/icon.png" alt=""></div>
-								<span class="userName">sashisu</span>
-							</a>
-							<a href="" class="reply">返信</a>
-							<p class="comment">
-								おいしかったでーーーー～～～～～～～～～～
-							</p>
-						</li>
-						<li>
-							<a href="mypage.php">
-								<div class="userIcon"><img src="img/icon.png" alt=""></div>
-								<span class="userName">tachitsu</span>
-							</a>
-							<a href="" class="reply">返信</a>
-							<p class="comment">
-								おいしかったでーーーー～～～～～～～～～～
-							</p>
-						</li>
-						<li>
-							<a href="mypage.php">
-								<div class="userIcon"><img src="img/icon.png" alt=""></div>
-								<span class="userName">naninu</span>
-							</a>
-							<a href="" class="reply">返信</a>
-							<p class="comment">
-								おいしかったでーーーー～～～～～～～～～～
-							</p>
-						</li>
-						<li>
-							<a href="mypage.php">
-								<div class="userIcon"><img src="img/icon.png" alt=""></div>
-								<span class="userName">あいうえお</span>
-							</a>
-							<a href="" class="reply">返信</a>
-							<p class="comment">
-								おいしかったでーーーー～～～～～～～～～～
-							</p>
-						</li>-->
+                    {% endfor %}
                 </ul>
             </div>
         </section>

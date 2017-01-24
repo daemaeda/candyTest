@@ -22,6 +22,11 @@ class Recipe extends Model {
         return $this->hasMany('Ingredients');
     }
 
+    public function review()
+    {
+        return $this->hasMany('Review', 'recipe_id');
+    }
+
     public function member()
     {
         return $this->belongsTo('Member');
