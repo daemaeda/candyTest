@@ -201,7 +201,7 @@ Class RecipeController extends Controller
         } catch (\Exception $e) {
             print_r($e->getMessage());
             $db->rollBack();
-//            Response::redirect($this->siteUrl('recipe/create'));
+            Response::redirect($this->siteUrl('recipe/create'));
         }
 
     }
@@ -212,11 +212,17 @@ Class RecipeController extends Controller
     // 詳細画面
     public function show($id)
     {
+        $this->loadJs('app/review.js');
         $Recipe = new Recipe();
+        $MemberFav = new MemberFavoriteRecipe();
         try {
             $findRecipe = $Recipe::findOrFail($id);
+            $MemberFav->setRecipeId($id);
+            $this->data['favorite'] = $MemberFav->isFavorite();
             $this->data['title'] = $findRecipe->title;
             $this->data['recipe'] = $findRecipe;
+            $this->data['loves'] = $MemberFav->getFavCount();
+            
             App::render('recipe/show.twig', $this->data);
         } catch (\SQLiteException $e) {
             App::flash('messageError', "データベースエラーが発生しました。管理者にお問い合わせください。");

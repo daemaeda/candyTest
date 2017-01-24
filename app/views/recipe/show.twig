@@ -3,7 +3,7 @@
 {% block body %}
 <div class="breadcrumb">
     <ul>
-        <li><a href="index.php">TOP</a></li>
+        <li><a href="index.php">TOP{{ fav }}</a></li>
         <li><a href="search_result.php">チョコレート</a></li>
         <li><a href="">チョコレートクッキー</a></li>
     </ul>
@@ -33,17 +33,17 @@
                     <span>views</span>
                 </div>
                 <div class="dlBtn">
-                    <a href="">
+                    <a href="#">
                         <span>レシピを保存</span>
                     </a>
                 </div>
                 <div class="favoBtn">
-                    <a href="">
+                    <a data-member="{{ userId }}" data-recipe="{{ recipe.id }}" class="toggleFavorite {% if favorite %}on{% endif %}" href="#">
                         <span>お気に入りに保存</span>
                     </a>
                 </div>
                 <div class="favoCount">
-                    <span>0</span>
+                    <span class="loves">{{ loves|default("0") }}</span>
                     <span>loves!</span>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                 <ul>
                     {% for review in recipe.review().getResults() %}
                     <li>
-                        <a href="{{ siteUrl('mypage') }}/{{ review.member_id }}">
+                        <a href="{{ siteUrl('user') }}/{{ review.member_id }}">
                             <div class="userIcon"><img src="img/icon.png" alt=""></div>
                             <span class="userName">{{ review.member().getResults().name }}</span>
                         </a>

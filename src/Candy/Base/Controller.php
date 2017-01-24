@@ -21,6 +21,10 @@ class Controller
         /** default title */
         $this->data['title'] = '';
 
+        /** loginUser */
+        $this->data['userId'] = isset($_SESSION['userId']) ? $_SESSION['userId'] : "1";
+        $this->data['userName'] = isset($_SESSION['userName']) ? $_SESSION['userName'] : "ユーザーさん";
+
         /** meta tag and information */
         $this->data['meta'] = array();
 
@@ -245,8 +249,7 @@ class Controller
      */
     protected function loadBaseJs()
     {
-        $options['location'] = "external";
-        $this->loadJs('https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', $options);
+        $this->loadJs("jquery-1.10.2.js");
     }
 
     /**

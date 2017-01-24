@@ -16,6 +16,18 @@ Route::group('/recipe', function(){
     Route::delete('/:id', 'RecipeController:destroy');
 });
 
+Route::group('/user', function(){
+    Route::get('/', 'UserController:index');
+    Route::get('/create', 'UserController:create');
+    Route::put('/favorite', 'UserController:favorite');
+    Route::post('/', 'UserController:store');
+    Route::get('/:id', 'UserController:show');
+    Route::get('/:id/edit', 'UserController:edit');
+    Route::put('/:id', 'UserController:update');
+    Route::get('/:id/delete', 'UserController:delete');
+    Route::delete('/:id', 'UserController:destroy');
+});
+
 // Error
 App::notFound(function(){
     View::display('404.twig');
