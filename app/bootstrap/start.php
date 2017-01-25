@@ -18,6 +18,8 @@ define('PAGING_THEMES_PATH', ROOT_PATH.'src/Candy/themes/default');
 
 require VENDOR_PATH.'autoload.php';
 
+define('CATEGORY', 0);
+define('SCENE', 1);
 /**
  * Load the configuration
  */
