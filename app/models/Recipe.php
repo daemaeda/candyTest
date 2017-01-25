@@ -27,9 +27,36 @@ class Recipe extends Model {
         return $this->hasMany('Review', 'recipe_id');
     }
 
+    public function tagRelations()
+    {
+        return $this->hasMany('TagRecipeRelations', 'recipe_id');
+    }
+
     public function member()
     {
         return $this->belongsTo('Member');
+    }
+
+    public function findRecipe($category, $scene, $aryKeyword) {
+         $findRecipe = DB::table('recipe')
+            ->join('tag_recipe_relations', 'recipe.id', '=', 'tag_recipe_relations.recipe_id')
+            ->join('tag', 'tag_recipe_relations.tag_id', '=', 'tag.id');
+
+        foreach ($aryKeyword as $value) {
+            $findRecipe->orWhere('title', 'like', '%'.$value.'%');
+        }
+
+        if(strlen($category) != 0) {
+            $findRecipe->where('tag_recipe_relations.tag_id', $category);
+        }
+
+        if(strlen($scene) != 0) {
+            $findRecipe->where('tag_recipe_relations.tag_id', $scene);
+        }
+
+        $findRecipe->orderBy('recipe.created_at', 'desc');
+        return $findRecipe;
+
     }
 
 }

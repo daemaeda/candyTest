@@ -14,7 +14,10 @@ Class HomeController extends Controller
 
 		// レシピテーブル（ORM）
 		$Recipe = new Recipe();
+		$Tag = new Tag();
 		try {
+			$this->data['categories'] = $Tag->getCategory();
+			$this->data['scenes'] = $Tag->getSCENE();
 			$findRecipes = $Recipe->newQuery()->orderBy('created_at', 'desc');
 			$this->data['recipes'] = $Recipe->findByQueryPerPage($findRecipes, $page);
 			$this->data['pager'] = $Recipe->paginationNav((int)$page, $this->siteUrl('recipe'))
@@ -23,9 +26,6 @@ Class HomeController extends Controller
 			App::flash('messageError', "データベースエラーが発生しました。管理者にお問い合わせください。");
 			Response::redirect($this->siteUrl('report'));
 		}
-		
-		
-		
 		View::display('index.twig', $this->data);
     }
 }
