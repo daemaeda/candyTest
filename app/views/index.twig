@@ -70,79 +70,37 @@
                 <section class="newClip clipList">
                     <h2 class="ttl02">新着クリップ</h2>
 
-					{% for recipe in recipes %}
-					<ul>
-						<li>
-							<a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">
-								<div class="videoBox">
-									<p><img src="/candy/public/{{ recipe.thumb }}" alt=""></p>
-									<div class="favoCount">
-										<span>♡99,999</span>
-									</div>
-									<div class="time">
-										<span>2:10</span>
-									</div>
-								</div>
-								<div class="clipInfo">
-									<div class="clipTitle">お菓子の作り方</div>
-									<div class="clipName">
-										<p class="userIcon"><img src="assets/img/icon.png" alt=""></p>
-										<span class="userName">あいうえお</span>
-									</div>
-									<div class="play">
-										<span class="count">99,999</span>
-										<span>views</span>
-									</div>
-								</div>
-							</a>
-						</li>
-						
-						
-						
-						id: <a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">{{ recipe.id }}←クリックすると詳細画面へ（showメソッド）</a></li>
-						<li>title: {{ recipe.title }}</li>
-						<li>clip: {{ recipe.clip }}</li>
-						<li>servings_for: {{ recipe.servings_for }}</li>
-						<li>thumb: {{ recipe.thumb }}</li>
-						<li>explain: {{ recipe.explain }}</li>
-						<li>point: {{ recipe.point }}</li>
-						<li>member_id: {{ recipe.member_id }}</li>
-					</ul>
-					{% endfor %}
-
-                        <!--<li>
-                            <a href="recipe.php">
-                                <div class="videoBox">
-                                    <video>
-                                        <source src="video/sample.mp4">
-                                        <p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
-                                    </video>
-                                    <div class="favoCount">
-                                        <span>♡99,999</span>
+                    <ul>
+                        {% for recipe in recipes %}
+                            <li>
+                                <a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">
+                                    <div class="videoBox">
+                                        <p><img src="/candy/public/{{ recipe.thumb }}" alt=""></p>
+                                        <div class="favoCount">
+                                            <span>♡99,999</span>
+                                        </div>
+                                        <div class="time">
+                                            <span>2:10</span>
+                                        </div>
                                     </div>
-                                    <div class="time">
-                                        <span>2:10</span>
+                                    <div class="clipInfo">
+                                        <div class="clipTitle">{{ recipe.title }}</div>
+                                        <div class="clipName">
+                                            <p class="userIcon"><img src="assets/img/icon.png" alt=""></p>
+                                            <span class="userName">{{ recipe.member().getResults().name }}</span>
+                                        </div>
+                                        <div class="play">
+                                            <span class="count">99,999</span>
+                                            <span>views</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="clipInfo">
-                                    <div class="clipTitle">お菓子の作り方</div>
-                                    <div class="clipName">
-                                        <p class="userIcon"><img src="assets/img/icon.png" alt=""></p>
-                                        <span class="userName">あいうえお</span>
-                                    </div>
-                                    <div class="play">
-                                        <span class="count">99,999</span>
-                                        <span>views</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
--->
-					<ul class="pagination">
-						{{ pager|raw }}
-					</ul>
-                </section>
+                    <ul class="pagination">
+                        {{ pager|raw }}
+                    </ul>
             </article>
         </div>
     </div>

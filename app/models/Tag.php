@@ -16,7 +16,7 @@ class Tag extends Model {
         return $this->newQuery()->where('type', CATEGORY)->get();
     }
 
-    public function getSCENE() {
+    public function getScene() {
         return $this->newQuery()->where('type', SCENE)->get();
     }
 }

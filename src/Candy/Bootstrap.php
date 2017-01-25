@@ -247,7 +247,9 @@ class Bootstrap
         $view->parserOptions = $config;
         $view->parserExtensions = array(
             new \Slim\Views\TwigExtension(),
-            new \Candy\TwigExtension\MenuRenderer()
+            new \Candy\TwigExtension\MenuRenderer(),
+            new \Twig_Extensions_Extension_Text(),
+            new \Twig_Extension_Debug(),
         );
     }
 

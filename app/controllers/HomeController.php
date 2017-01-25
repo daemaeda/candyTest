@@ -17,8 +17,8 @@ Class HomeController extends Controller
 		$Tag = new Tag();
 		try {
 			$this->data['categories'] = $Tag->getCategory();
-			$this->data['scenes'] = $Tag->getSCENE();
-			$findRecipes = $Recipe->newQuery()->orderBy('created_at', 'desc');
+			$this->data['scenes'] = $Tag->getScene();
+			$findRecipes = $Recipe->newQuery()->orderBy('created_at', 'desc')->get();
 			$this->data['recipes'] = $Recipe->findByQueryPerPage($findRecipes, $page);
 			$this->data['pager'] = $Recipe->paginationNav((int)$page, $this->siteUrl('recipe'))
 				->get_html(PAGING_THEMES_PATH);
