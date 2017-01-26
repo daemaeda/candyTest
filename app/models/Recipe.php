@@ -12,8 +12,9 @@ class Recipe extends Model
     {
         return [
             'title' => ['required', 'string'],
-            'servings_for' => ['required', 'string'],
             'explain' => ['required', 'string'],
+            'servings_for' => ['required', 'string'],
+            'point' => ['string'],
             'mistake' => ['string'],
         ];
     }
