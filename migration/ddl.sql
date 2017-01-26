@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2017 年 1 月 25 日 13:52
+-- Generation Time: 2017 年 1 月 26 日 18:16
 -- サーバのバージョン： 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `candy`
 --
-CREATE DATABASE IF NOT EXISTS `candy` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `candy`;
 
 -- --------------------------------------------------------
 
@@ -28,7 +26,6 @@ USE `candy`;
 -- テーブルの構造 `ingredients`
 --
 
-DROP TABLE IF EXISTS `ingredients`;
 CREATE TABLE `ingredients` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `recipe_id` bigint(20) UNSIGNED NOT NULL,
@@ -84,7 +81,81 @@ INSERT INTO `ingredients` (`id`, `recipe_id`, `ingredients_no`, `name`, `quantit
 (37, 19, 1, '小麦', '300g', '2017-01-23 23:12:18', '2017-01-23 23:12:18', NULL),
 (38, 19, 2, '小麦', '300g', '2017-01-23 23:12:18', '2017-01-23 23:12:18', NULL),
 (39, 19, 3, '小麦', '300g', '2017-01-23 23:12:18', '2017-01-23 23:12:18', NULL),
-(40, 19, 4, '小麦', '300g', '2017-01-23 23:12:18', '2017-01-23 23:12:18', NULL);
+(40, 19, 4, '小麦', '300g', '2017-01-23 23:12:18', '2017-01-23 23:12:18', NULL),
+(41, 0, 1, '小麦', '300g', '2017-01-25 12:40:57', '2017-01-25 12:40:57', NULL),
+(42, 0, 2, '小麦', '300g', '2017-01-25 12:40:57', '2017-01-25 12:40:57', NULL),
+(43, 0, 3, '小麦', '300g', '2017-01-25 12:40:57', '2017-01-25 12:40:57', NULL),
+(44, 0, 4, '小麦', '300g', '2017-01-25 12:40:57', '2017-01-25 12:40:57', NULL),
+(45, 0, 1, '小麦', '300g', '2017-01-25 12:48:00', '2017-01-25 12:48:00', NULL),
+(46, 0, 2, '小麦', '300g', '2017-01-25 12:48:00', '2017-01-25 12:48:00', NULL),
+(47, 0, 3, '小麦', '300g', '2017-01-25 12:48:00', '2017-01-25 12:48:00', NULL),
+(48, 0, 4, '小麦', '300g', '2017-01-25 12:48:00', '2017-01-25 12:48:00', NULL),
+(49, 0, 1, '小麦', '300g', '2017-01-25 13:30:50', '2017-01-25 13:30:50', NULL),
+(50, 0, 2, '小麦', '300g', '2017-01-25 13:30:50', '2017-01-25 13:30:50', NULL),
+(51, 0, 3, '小麦', '300g', '2017-01-25 13:30:50', '2017-01-25 13:30:50', NULL),
+(52, 0, 4, '小麦', '300g', '2017-01-25 13:30:50', '2017-01-25 13:30:50', NULL),
+(53, 0, 1, '小麦', '300g', '2017-01-25 13:32:29', '2017-01-25 13:32:29', NULL),
+(54, 0, 2, '小麦', '300g', '2017-01-25 13:32:29', '2017-01-25 13:32:29', NULL),
+(55, 0, 3, '小麦', '300g', '2017-01-25 13:32:29', '2017-01-25 13:32:29', NULL),
+(56, 0, 4, '小麦', '300g', '2017-01-25 13:32:29', '2017-01-25 13:32:29', NULL),
+(57, 0, 1, '小麦', '300g', '2017-01-25 13:34:40', '2017-01-25 13:34:40', NULL),
+(58, 0, 2, '小麦', '300g', '2017-01-25 13:34:40', '2017-01-25 13:34:40', NULL),
+(59, 0, 3, '小麦', '300g', '2017-01-25 13:34:40', '2017-01-25 13:34:40', NULL),
+(60, 0, 4, '小麦', '300g', '2017-01-25 13:34:40', '2017-01-25 13:34:40', NULL),
+(61, 0, 1, '小麦', '300g', '2017-01-25 13:34:40', '2017-01-25 13:34:40', NULL),
+(62, 0, 2, '小麦', '300g', '2017-01-25 13:34:41', '2017-01-25 13:34:41', NULL),
+(63, 0, 3, '小麦', '300g', '2017-01-25 13:34:41', '2017-01-25 13:34:41', NULL),
+(64, 0, 4, '小麦', '300g', '2017-01-25 13:34:41', '2017-01-25 13:34:41', NULL),
+(65, 0, 1, '小麦', '300g', '2017-01-25 13:35:04', '2017-01-25 13:35:04', NULL),
+(66, 0, 2, '小麦', '300g', '2017-01-25 13:35:04', '2017-01-25 13:35:04', NULL),
+(67, 0, 3, '小麦', '300g', '2017-01-25 13:35:04', '2017-01-25 13:35:04', NULL),
+(68, 0, 4, '小麦', '300g', '2017-01-25 13:35:04', '2017-01-25 13:35:04', NULL),
+(69, 0, 1, '小麦', '300g', '2017-01-25 13:35:47', '2017-01-25 13:35:47', NULL),
+(70, 0, 2, '小麦', '300g', '2017-01-25 13:35:47', '2017-01-25 13:35:47', NULL),
+(71, 0, 3, '小麦', '300g', '2017-01-25 13:35:47', '2017-01-25 13:35:47', NULL),
+(72, 0, 4, '小麦', '300g', '2017-01-25 13:35:47', '2017-01-25 13:35:47', NULL),
+(73, 0, 1, '小麦', '300g', '2017-01-25 13:36:19', '2017-01-25 13:36:19', NULL),
+(74, 0, 2, '小麦', '300g', '2017-01-25 13:36:19', '2017-01-25 13:36:19', NULL),
+(75, 0, 3, '小麦', '300g', '2017-01-25 13:36:19', '2017-01-25 13:36:19', NULL),
+(76, 0, 4, '小麦', '300g', '2017-01-25 13:36:19', '2017-01-25 13:36:19', NULL),
+(77, 0, 1, '小麦', '300g', '2017-01-25 13:36:22', '2017-01-25 13:36:22', NULL),
+(78, 0, 2, '小麦', '300g', '2017-01-25 13:36:22', '2017-01-25 13:36:22', NULL),
+(79, 0, 3, '小麦', '300g', '2017-01-25 13:36:22', '2017-01-25 13:36:22', NULL),
+(80, 0, 4, '小麦', '300g', '2017-01-25 13:36:22', '2017-01-25 13:36:22', NULL),
+(81, 0, 1, '小麦', '300g', '2017-01-25 13:36:26', '2017-01-25 13:36:26', NULL),
+(82, 0, 2, '小麦', '300g', '2017-01-25 13:36:26', '2017-01-25 13:36:26', NULL),
+(83, 0, 3, '小麦', '300g', '2017-01-25 13:36:26', '2017-01-25 13:36:26', NULL),
+(84, 0, 4, '小麦', '300g', '2017-01-25 13:36:26', '2017-01-25 13:36:26', NULL),
+(85, 0, 1, '小麦', '300g', '2017-01-25 13:36:44', '2017-01-25 13:36:44', NULL),
+(86, 0, 2, '小麦', '300g', '2017-01-25 13:36:44', '2017-01-25 13:36:44', NULL),
+(87, 0, 3, '小麦', '300g', '2017-01-25 13:36:44', '2017-01-25 13:36:44', NULL),
+(88, 0, 4, '小麦', '300g', '2017-01-25 13:36:44', '2017-01-25 13:36:44', NULL),
+(89, 0, 1, '小麦', '300g', '2017-01-25 13:37:19', '2017-01-25 13:37:19', NULL),
+(90, 0, 2, '小麦', '300g', '2017-01-25 13:37:19', '2017-01-25 13:37:19', NULL),
+(91, 0, 3, '小麦', '300g', '2017-01-25 13:37:19', '2017-01-25 13:37:19', NULL),
+(92, 0, 4, '小麦', '300g', '2017-01-25 13:37:19', '2017-01-25 13:37:19', NULL),
+(93, 0, 1, '小麦', '300g', '2017-01-25 13:37:26', '2017-01-25 13:37:26', NULL),
+(94, 0, 2, '小麦', '300g', '2017-01-25 13:37:26', '2017-01-25 13:37:26', NULL),
+(95, 0, 3, '小麦', '300g', '2017-01-25 13:37:26', '2017-01-25 13:37:26', NULL),
+(96, 0, 4, '小麦', '300g', '2017-01-25 13:37:26', '2017-01-25 13:37:26', NULL),
+(97, 0, 1, '小麦', '300g', '2017-01-26 04:43:40', '2017-01-26 04:43:40', NULL),
+(98, 0, 2, '小麦', '300g', '2017-01-26 04:43:40', '2017-01-26 04:43:40', NULL),
+(99, 0, 3, '小麦', '300g', '2017-01-26 04:43:40', '2017-01-26 04:43:40', NULL),
+(100, 0, 4, '小麦', '300g', '2017-01-26 04:43:40', '2017-01-26 04:43:40', NULL),
+(101, 0, 1, '小麦', '300g', '2017-01-26 04:43:55', '2017-01-26 04:43:55', NULL),
+(102, 0, 2, '小麦', '300g', '2017-01-26 04:43:55', '2017-01-26 04:43:55', NULL),
+(103, 0, 3, '小麦', '300g', '2017-01-26 04:43:55', '2017-01-26 04:43:55', NULL),
+(104, 0, 4, '小麦', '300g', '2017-01-26 04:43:55', '2017-01-26 04:43:55', NULL),
+(105, 0, 1, '小麦', '300g', '2017-01-26 04:44:34', '2017-01-26 04:44:34', NULL),
+(106, 0, 2, '小麦', '300g', '2017-01-26 04:44:34', '2017-01-26 04:44:34', NULL),
+(107, 0, 3, '小麦', '300g', '2017-01-26 04:44:34', '2017-01-26 04:44:34', NULL),
+(108, 0, 4, '小麦', '300g', '2017-01-26 04:44:34', '2017-01-26 04:44:34', NULL),
+(109, 0, 1, '2', '2', '2017-01-26 04:46:04', '2017-01-26 04:46:04', NULL),
+(110, 0, 1, '2', '2', '2017-01-26 04:46:25', '2017-01-26 04:46:25', NULL),
+(111, 0, 2, 'a', 'a', '2017-01-26 04:46:25', '2017-01-26 04:46:25', NULL),
+(123, 33, 1, 'dwa', 'dwad', '2017-01-26 08:49:03', '2017-01-26 08:49:03', NULL),
+(124, 34, 1, 'dwad1', 'dwada1', '2017-01-26 08:51:03', '2017-01-26 08:51:03', NULL),
+(125, 34, 2, 'dwadad2', 'dwadwa2', '2017-01-26 08:51:03', '2017-01-26 08:51:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -92,7 +163,6 @@ INSERT INTO `ingredients` (`id`, `recipe_id`, `ingredients_no`, `name`, `quantit
 -- テーブルの構造 `member`
 --
 
-DROP TABLE IF EXISTS `member`;
 CREATE TABLE `member` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(30) NOT NULL,
@@ -123,7 +193,6 @@ INSERT INTO `member` (`id`, `name`, `img_url`, `mail`, `login_id`, `password`, `
 -- テーブルの構造 `member_favorite_recipe`
 --
 
-DROP TABLE IF EXISTS `member_favorite_recipe`;
 CREATE TABLE `member_favorite_recipe` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `member_id` int(10) UNSIGNED NOT NULL,
@@ -151,7 +220,9 @@ INSERT INTO `member_favorite_recipe` (`id`, `member_id`, `recipe_id`, `created_a
 (21, 1, 14, '2017-01-23 23:18:14', '2017-01-23 23:18:15', '2017-01-23 23:18:15'),
 (22, 1, 14, '2017-01-23 23:18:15', '2017-01-23 23:18:43', '2017-01-23 23:18:43'),
 (23, 1, 14, '2017-01-23 23:18:44', '2017-01-23 23:18:44', NULL),
-(24, 1, 18, '2017-01-23 23:18:51', '2017-01-23 23:18:51', NULL);
+(24, 1, 18, '2017-01-23 23:18:51', '2017-01-23 23:18:51', NULL),
+(25, 1, 9, '2017-01-26 04:40:55', '2017-01-26 04:40:57', '2017-01-26 04:40:57'),
+(26, 1, 34, '2017-01-26 08:51:11', '2017-01-26 08:51:24', '2017-01-26 08:51:24');
 
 -- --------------------------------------------------------
 
@@ -159,7 +230,6 @@ INSERT INTO `member_favorite_recipe` (`id`, `member_id`, `recipe_id`, `created_a
 -- テーブルの構造 `recipe`
 --
 
-DROP TABLE IF EXISTS `recipe`;
 CREATE TABLE `recipe` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(30) NOT NULL,
@@ -180,6 +250,7 @@ CREATE TABLE `recipe` (
 --
 
 INSERT INTO `recipe` (`id`, `title`, `clip`, `servings_for`, `thumb`, `explain`, `point`, `mistake`, `member_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(0, 'レシピタイトル', '_1485348057.mp4', '３人分', '_1485348057.jpg', '説明説明説明', 'コツ', '失敗談', 1, '2017-01-25 12:40:57', '2017-01-25 12:40:57', NULL),
 (1, 'ストウブ16♥︎魅惑の飴色タルトタタン♪', NULL, '1人前', NULL, '簡単なのに本格的にみえるタルトタタン（≧∇≦）お店のより美味しいかも！？バター少なめ！ピコ ココットラウンド16cm使用 ', '林檎をぎゅうぎゅうに詰めること、冷蔵庫できちんと冷やすのがポイント(*^o^*)\n取り出す時は竹串で充分に取り出しやすくしてから、ストウブの上にお皿を乗せて一気にぐるっと上下を反対にしましょう！\nストウブを揺すると綺麗に出てきます（≧∇≦）', '', 1, '2016-12-28 02:04:40', '2016-12-28 03:18:20', NULL),
 (2, ' HMで簡単！ココナッツりんごケーキ ', NULL, '4人前', NULL, 'はかり不要！バター不使用！\n市販フルーツ缶でも作れます♪\n◎りんごの日持ち保存コツ付き◎ ', 'シリコンスチーマーを使うと、クッキングシートを使わずに時短となります♪\n\nりんご保存の際は、ヘタを下にして置くと日持ちします！\n\nシナモンをかけたり、紅茶の茶葉を入れてもおいしいです。（茶葉はティーバッグ2個分くらい入れてください） ', '', 2, '2016-12-28 02:05:19', '2016-12-28 03:18:36', NULL),
 (3, 'HMで簡単！マーマレードココナッツケーキ', NULL, '4人前', NULL, 'はかり不要！砂糖バター不使用！\n全部入れてオーブンで焼くだけ♪\nお好みのジャムでどうぞ。', 'ホットケーキミックスに塩をひとつまみ入れると、ホットケーキミックス独特のにおいが消えます。\n\nジャムが甘いので、砂糖を入れなくてもOK！\n\n風味は変わりますがココナッツオイルがなければオリーブオイルでもOK。 ', '', 3, '2016-12-28 02:05:19', '2016-12-28 03:18:56', NULL),
@@ -198,7 +269,11 @@ INSERT INTO `recipe` (`id`, `title`, `clip`, `servings_for`, `thumb`, `explain`,
 (16, 'dwa', 'sample_1485225454.mp4', 'dwa', 'sample_1485225454.jpg', 'dwada', 'dwa', 'dwa', 1, '2017-01-23 17:37:34', '2017-01-23 17:37:34', NULL),
 (17, 'レシピタイトル', '_1485225927.mp4', '３人分', '_1485225927.jpg', '説明説明説明', 'コツ', '失敗談', 1, '2017-01-23 17:45:27', '2017-01-23 17:45:27', NULL),
 (18, 'レシピタイトル', 'sample_1485225952.mp4', '３人分', 'sample_1485225952.jpg', '説明説明説明', 'コツ', '失敗談', 1, '2017-01-23 17:45:53', '2017-01-23 17:45:53', NULL),
-(19, 'レシピタイトル', 'sample_1485245538.mp4', '３人分', 'sample_1485245538.jpg', '説明説明説明', 'コツ', '失敗談', 1, '2017-01-23 23:12:18', '2017-01-23 23:12:18', NULL);
+(19, 'レシピタイトル', 'sample_1485245538.mp4', '３人分', 'sample_1485245538.jpg', '説明説明説明', 'コツ', '失敗談', 1, '2017-01-23 23:12:18', '2017-01-23 23:12:18', NULL),
+(20, 'dwada', 'sample_1485419755.mp4', 'dwa', 'sample_1485419755.jpg', 'wda', '', '', 1, '2017-01-26 08:35:55', '2017-01-26 08:35:55', NULL),
+(21, 'dwada', 'sample_1485419782.mp4', 'dwad', 'sample_1485419782.jpg', 'dwa', '', '', 1, '2017-01-26 08:36:22', '2017-01-26 08:36:22', NULL),
+(33, 'dwa', 'sample_1485420543.mp4', 'dwadw', 'sample_1485420543.jpg', 'dwa', '', '', 1, '2017-01-26 08:49:03', '2017-01-26 08:49:03', NULL),
+(34, 'dwa', 'sample_1485420663.mp4', 'dwad2', 'sample_1485420663.jpg', 'dwada', '', '', 1, '2017-01-26 08:51:03', '2017-01-26 08:51:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -206,7 +281,6 @@ INSERT INTO `recipe` (`id`, `title`, `clip`, `servings_for`, `thumb`, `explain`,
 -- テーブルの構造 `review`
 --
 
-DROP TABLE IF EXISTS `review`;
 CREATE TABLE `review` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `recipe_id` bigint(20) UNSIGNED NOT NULL,
@@ -234,7 +308,6 @@ INSERT INTO `review` (`id`, `recipe_id`, `review_no`, `reply_id`, `comment`, `me
 -- テーブルの構造 `step`
 --
 
-DROP TABLE IF EXISTS `step`;
 CREATE TABLE `step` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `recipe_id` bigint(20) UNSIGNED NOT NULL,
@@ -252,7 +325,6 @@ CREATE TABLE `step` (
 -- テーブルの構造 `tag`
 --
 
-DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(30) NOT NULL,
@@ -262,13 +334,33 @@ CREATE TABLE `tag` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- テーブルのデータのダンプ `tag`
+--
+
+INSERT INTO `tag` (`id`, `name`, `type`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'ケーキ', 0, '2017-01-25 05:09:19', '2017-01-25 05:09:19', NULL),
+(2, 'パン', 0, '2017-01-25 05:09:26', '2017-01-25 05:09:26', NULL),
+(3, 'クッキー', 0, '2017-01-25 05:09:32', '2017-01-25 05:09:32', NULL),
+(4, 'アイス・ゼリー・プリン', 0, '2017-01-25 05:10:26', '2017-01-25 05:10:26', NULL),
+(5, 'チョコ', 0, '2017-01-25 05:10:33', '2017-01-25 05:10:38', NULL),
+(6, '和菓子', 0, '2017-01-25 05:10:46', '2017-01-25 05:10:46', NULL),
+(7, '春', 1, '2017-01-25 05:11:05', '2017-01-25 05:11:05', NULL),
+(8, '夏', 1, '2017-01-25 05:11:12', '2017-01-25 05:11:12', NULL),
+(9, '秋', 1, '2017-01-25 05:11:12', '2017-01-25 05:11:21', NULL),
+(10, '冬', 1, '2017-01-25 05:11:12', '2017-01-25 05:11:25', NULL),
+(11, 'パーティー', 1, '2017-01-25 05:11:12', '2017-01-25 05:11:36', NULL),
+(12, 'バレンタイン', 1, '2017-01-25 05:11:12', '2017-01-25 05:11:40', NULL),
+(13, 'ホワイトデー', 1, '2017-01-25 05:11:12', '2017-01-25 05:11:44', NULL),
+(14, 'プレゼント', 1, '2017-01-25 05:11:12', '2017-01-25 05:11:44', NULL),
+(15, '誕生日', 1, '2017-01-25 05:11:12', '2017-01-25 05:11:44', NULL);
+
 -- --------------------------------------------------------
 
 --
 -- テーブルの構造 `tag_recipe_relations`
 --
 
-DROP TABLE IF EXISTS `tag_recipe_relations`;
 CREATE TABLE `tag_recipe_relations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `recipe_id` bigint(20) UNSIGNED NOT NULL,
@@ -277,6 +369,26 @@ CREATE TABLE `tag_recipe_relations` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- テーブルのデータのダンプ `tag_recipe_relations`
+--
+
+INSERT INTO `tag_recipe_relations` (`id`, `recipe_id`, `tag_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 15, 6, '2017-01-25 05:15:34', '2017-01-25 05:16:51', NULL),
+(2, 9, 5, '2017-01-25 05:16:37', '2017-01-25 05:16:52', NULL),
+(3, 9, 2, '2017-01-25 05:16:37', '2017-01-25 05:16:52', NULL),
+(4, 9, 1, '2017-01-25 05:16:37', '2017-01-25 08:49:24', NULL),
+(5, 33, 1, '2017-01-26 08:49:03', '2017-01-26 08:49:03', NULL),
+(6, 33, 2, '2017-01-26 08:49:03', '2017-01-26 08:49:03', NULL),
+(7, 33, 3, '2017-01-26 08:49:03', '2017-01-26 08:49:03', NULL),
+(8, 33, 7, '2017-01-26 08:49:03', '2017-01-26 08:49:03', NULL),
+(9, 33, 8, '2017-01-26 08:49:03', '2017-01-26 08:49:03', NULL),
+(10, 34, 1, '2017-01-26 08:51:03', '2017-01-26 08:51:03', NULL),
+(11, 34, 2, '2017-01-26 08:51:03', '2017-01-26 08:51:03', NULL),
+(12, 34, 3, '2017-01-26 08:51:03', '2017-01-26 08:51:03', NULL),
+(13, 34, 7, '2017-01-26 08:51:03', '2017-01-26 08:51:03', NULL),
+(14, 34, 8, '2017-01-26 08:51:03', '2017-01-26 08:51:03', NULL);
 
 --
 -- Indexes for dumped tables
@@ -348,7 +460,7 @@ ALTER TABLE `tag_recipe_relations`
 -- AUTO_INCREMENT for table `ingredients`
 --
 ALTER TABLE `ingredients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 --
 -- AUTO_INCREMENT for table `member`
 --
@@ -358,7 +470,12 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `member_favorite_recipe`
 --
 ALTER TABLE `member_favorite_recipe`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `recipe`
+--
+ALTER TABLE `recipe`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `review`
 --
@@ -373,12 +490,12 @@ ALTER TABLE `step`
 -- AUTO_INCREMENT for table `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `tag_recipe_relations`
 --
 ALTER TABLE `tag_recipe_relations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- ダンプしたテーブルの制約
 --
@@ -395,32 +512,6 @@ ALTER TABLE `ingredients`
 ALTER TABLE `member_favorite_recipe`
   ADD CONSTRAINT `member_favorite_recipe_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `member_favorite_recipe_ibfk_2` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- テーブルの制約 `recipe`
---
-ALTER TABLE `recipe`
-  ADD CONSTRAINT `recipe_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- テーブルの制約 `review`
---
-ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- テーブルの制約 `step`
---
-ALTER TABLE `step`
-  ADD CONSTRAINT `step_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- テーブルの制約 `tag_recipe_relations`
---
-ALTER TABLE `tag_recipe_relations`
-  ADD CONSTRAINT `tag_recipe_relations_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `tag_recipe_relations_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
