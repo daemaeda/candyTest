@@ -23,7 +23,7 @@ class Controller
 
         /** loginUser */
         $this->data['userId'] = isset($_SESSION['userId']) ? $_SESSION['userId'] : "1";
-        $this->data['userName'] = isset($_SESSION['userName']) ? $_SESSION['userName'] : "ユーザーさん";
+        $this->data['userName'] = isset($_SESSION['userName']) ? $_SESSION['userName'] : "RIKA☆MAMA";
 
         /** meta tag and information */
         $this->data['meta'] = array();

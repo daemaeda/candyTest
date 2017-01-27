@@ -1,194 +1,108 @@
 {% extends 'master.twig' %}
 
 {% block body %}
-<div class="breadcrumb">
-    <ul>
-        <li><a href="index.php">TOP{{ fav }}</a></li>
-        <li><a href="search_result.php">チョコレート</a></li>
-        <li><a href="">チョコレートクッキー</a></li>
-    </ul>
-</div>
-<div class="tagList">
-    <h2>この動画につけられているタグ：</h2>
-    <ul>
-        {% for tag in tags %}
-        <li><a href="">{{ tag.tag().getResults().name }}</a></li>
-        {% endfor %}
-    </ul>
-</div>
-<div class="contents">
-    <article>
-        <section>
-            <video controls autoplay>
-                <source src="/candy/public/video/{{ recipe.member_id }}/{{ recipe.clip }}">
-                <p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
-            </video>
-            <div class="clipInfo">
-                <a href="">
-                    <div class="userIcon"><img src="img/icon.png" alt=""></div>
-                    <span class="userName">{{ user.name }}</span>
-                </a>
-                <div class="play">
-                    <span class="count">{{ recipe.views }}</span>
-                    <span>views</span>
-                </div>
-                <div class="dlBtn">
-                    <a href="#">
-                        <span>レシピを保存</span>
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.php">TOP{{ fav }}</a></li>
+            <li><a href="search_result.php">チョコレート</a></li>
+            <li><a href="">チョコレートクッキー</a></li>
+        </ul>
+    </div>
+    <div class="tagList">
+        <h2>この動画につけられているタグ：</h2>
+        <ul>
+            {% for tag in tags %}
+                <li>{{ tag.tag().getResults().name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="contents">
+        <article>
+            <section>
+                <video controls autoplay>
+                    <source src="/candy/public/video/{{ recipe.member_id }}/{{ recipe.clip }}">
+                    <p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
+                </video>
+                <div class="clipInfo">
+                    <a href="">
+                        <div class="userIcon"><img src="img/icon.png" alt=""></div>
+                        <span class="userName">{{ user.name }}</span>
                     </a>
-                </div>
-                <div class="favoBtn">
-                    <a data-member="{{ userId }}" data-recipe="{{ recipe.id }}" class="toggleFavorite {% if favorite %}on{% endif %}" href="#">
-                        <span>お気に入りに保存</span>
-                    </a>
-                </div>
-                <div class="favoCount">
-                    <span class="loves">{{ loves|default("0") }}</span>
-                    <span>loves!</span>
-                </div>
-            </div>
-        </section>
-        <section class="recipeInfo">
-            <h2 class="ttl01"><?= $title ?></h2>
-            <div class="description">
-                <?= $desc ?>
-            </div>
-        </section>
-        <section class="ingredient">
-            <h2 class="ttl02">材料<span>（{{ recipe.servings_for }}）</span></h2>
-            <dl>
-                {{ ingredient in recipe.ingredients().getResults() }}
-                {% for ingredient in recipe.ingredients().getResults() %}
-                <dt>{{ ingredient.name }}</dt>
-                <dd>{{ ingredient.quantity }}</dd>
-                {% endfor %}
-                <!-- $i_name $quantity -->
-            </dl>
-        </section>
-        <section class="recipeStep">
-            <h2 class="ttl02">説明</h2>
-            <p>{{ recipe.explain }}</p>
-        <section class="point">
-            <h2 class="ttl02">コツ・ポイント</h2>
-            <p>{{ recipe.point }}</p>
-        </section>
-        <section class="mistake">
-            <h2 class="ttl02">あいうえおさんの失敗談</h2>
-            <p>{{ recipe.mistake }}</p>
-        </section>
-        <section class="comment">
-            <h2 class="ttl02">感想や質問({{ recipe.review().getResults().count }}件)</h2>
-            <div class="commentList">
-                <ul>
-                    {% for review in recipe.review().getResults() %}
-                    <li>
-                        <a href="{{ siteUrl('user') }}/{{ review.member_id }}">
-                            <div class="userIcon"><img src="img/icon.png" alt=""></div>
-                            <span class="userName">{{ review.member().getResults().name }}</span>
+                    <div class="play">
+                        <span class="count">{{ recipe.views }}</span>
+                        <span>views</span>
+                    </div>
+                    <div class="dlBtn">
+                        <a href="#">
+                            <span>レシピを保存</span>
                         </a>
-                        <p class="comment">
-                            {{ review.comment }}
-                        </p>
-                    </li>
+                    </div>
+                    <div class="favoBtn">
+                        <a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}"
+                           class="toggleFavorite {% if favorite %}on{% endif %}" href="#">
+                            <span>お気に入りに保存</span>
+                        </a>
+                    </div>
+                    <div class="favoCount">
+                        <span class="loves">{{ loves|default("0") }}</span>
+                        <span>loves!</span>
+                    </div>
+                </div>
+            </section>
+            <section class="recipeInfo">
+                <h2 class="ttl01"><?= $title ?></h2>
+                <div class="description">
+                    <?= $desc ?>
+                </div>
+            </section>
+            <section class="ingredient">
+                <h2 class="ttl02">材料<span>（{{ recipe.servings_for }}）</span></h2>
+                <dl>
+                    {{ ingredient in recipe.ingredients().getResults() }}
+                    {% for ingredient in recipe.ingredients().getResults() %}
+                        <dt>{{ ingredient.name }}</dt>
+                        <dd>{{ ingredient.quantity }}</dd>
                     {% endfor %}
-                </ul>
-            </div>
-        </section>
-
-        <!--			<div class="tagList">
-                        <h2>この動画につけられているタグ：</h2>
+                    <!-- $i_name $quantity -->
+                </dl>
+            </section>
+            <section class="recipeStep">
+                <h2 class="ttl02">説明</h2>
+                <p>{{ recipe.explain }}</p>
+                <section class="point">
+                    <h2 class="ttl02">コツ・ポイント</h2>
+                    <p>{{ recipe.point }}</p>
+                </section>
+                <section class="mistake">
+                    <h2 class="ttl02">あいうえおさんの失敗談</h2>
+                    <p>{{ recipe.mistake }}</p>
+                </section>
+                <section class="comment">
+                    <h2 class="ttl02">感想や質問(<span class="commentCount">{{ recipe.review().getResults().count }}</span>件)</h2>
+                    <div class="commentList">
                         <ul>
-                            <li><a href="">チョコレート</a></li>
-                            <li><a href="">簡単</a></li>
-                            <li><a href="">安い</a></li>
+                            {% for review in recipe.review().getResults() %}
+                                <li>
+                                    <a href="{{ siteUrl('user') }}/{{ review.member_id }}">
+                                        <div class="userIcon"><img src="img/icon.png" alt=""></div>
+                                        <span class="userName">{{ review.member().getResults().name }}</span>
+                                    </a>
+                                    <p class="comment">
+                                        {{ review.comment }}
+                                    </p>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
-                    <section class="clipList">
-                        <h2 class="ttl02">あいうえおさんの他のクリップ</h2>
-                        <ul>
-                            <li>
-                                <a href="recipe.php">
-                                    <div class="videoBox">
-                                        <video>
-                                            <source src="video/sample.mp4">
-                                            <p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
-                                        </video>
-                                        <div class="favoCount">
-                                            <span>♡99,999</span>
-                                        </div>
-                                        <div class="time">
-                                            <span>2:10</span>
-                                        </div>
-                                    </div>
-                                    <div class="clipInfo">
-                                        <div class="clipTitle">お菓子の作り方</div>
-                                        <div class="clipName">
-                                            <p class="userIcon"><img src="img/icon.png" alt=""></p>
-                                            <span class="userName">あいうえお</span>
-                                        </div>
-                                        <div class="play">
-                                            <span class="count">99,999</span>
-                                            <span>views</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="recipe.php">
-                                    <div class="videoBox">
-                                        <video>
-                                            <source src="video/sample.mp4">
-                                            <p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
-                                        </video>
-                                        <div class="favoCount">
-                                            <span>♡99,999</span>
-                                        </div>
-                                        <div class="time">
-                                            <span>2:10</span>
-                                        </div>
-                                    </div>
-                                    <div class="clipInfo">
-                                        <div class="clipTitle">お菓子の作り方</div>
-                                        <div class="clipName">
-                                            <p class="userIcon"><img src="img/icon.png" alt=""></p>
-                                            <span class="userName">あいうえお</span>
-                                        </div>
-                                        <div class="play">
-                                            <span class="count">99,999</span>
-                                            <span>views</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="recipe.php">
-                                    <div class="videoBox">
-                                        <video>
-                                            <source src="video/sample.mp4">
-                                            <p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
-                                        </video>
-                                        <div class="favoCount">
-                                            <span>♡99,999</span>
-                                        </div>
-                                        <div class="time">
-                                            <span>2:10</span>
-                                        </div>
-                                    </div>
-                                    <div class="clipInfo">
-                                        <div class="clipTitle">お菓子の作り方</div>
-                                        <div class="clipName">
-                                            <p class="userIcon"><img src="img/icon.png" alt=""></p>
-                                            <span class="userName">あいうえお</span>
-                                        </div>
-                                        <div class="play">
-                                            <span class="count">99,999</span>
-                                            <span>views</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>-->
-    </article>
-</div>
+                    <div class="review">
+                        <textarea name="comment" id="reviewComment" cols="30" rows="10"></textarea>
+                        <a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}" data-member-name="{{ userName }}"
+                           class="postReview" href="#">
+                            <span>投稿</span>
+                        </a>
+                    </div>
+                </section>
+            </section>
+        </article>
+    </div>
 {% endblock %}

@@ -28,6 +28,10 @@ Route::group('/user', function(){
     Route::delete('/:id', 'UserController:destroy');
 });
 
+Route::group('/review', function(){
+    Route::post('/', 'ReviewController:store');
+});
+
 // Error
 App::notFound(function(){
     View::display('404.twig');
