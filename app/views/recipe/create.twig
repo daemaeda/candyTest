@@ -41,7 +41,6 @@
                                             {% set selected = true %}
                                         {% endif %}
                                     {% endfor %}
-                                    <input type="checkbox" name="category[]" value="{{ category.id }}" {% if selected %}checked{% endif %} id="tag_{{ category.id }}">
                                     <label for="tag_{{ category.id }}">{{ category.name }}</label>
                                 {% endfor %}
                                 <p class="errorMessage"> {{ flash.category }}</p>

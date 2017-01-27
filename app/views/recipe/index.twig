@@ -6,13 +6,13 @@
     {% for recipe in recipes %}
         <ul>
             <li>id: <a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">{{ recipe.id }}</a></li>
-            <li>タイトル: {{ recipe.title|truncate(16)}}</li>
+            <li>タイトル: {{ recipe.title|truncate(16) }}</li>
             <li>サムネ：<img src="/candy/public/{{ recipe.thumb }}" alt=""></li>
             <li>説明文: {{ recipe.explain|truncate(38) }}</li>
             <li>ユーザー名: {{ recipe.member_name }}</li>
             <li>タグ: {{ recipe.tag }}</li>
         </ul>
-        {{dump(recipe)}}
+        {{ dump(recipe) }}
         <hr>
     {% endfor %}
 

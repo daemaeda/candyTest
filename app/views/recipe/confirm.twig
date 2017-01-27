@@ -1,64 +1,67 @@
 {% extends 'master.twig' %}
 
 {% block body %}
-<div class="contents">
-    {% include 'include/flashMessage.twig' %}
-    <article>
-        <section>
-            <h2 class="ttl02">レシピ入力画面</h2>
-            <form action="" method="post" enctype="multipart/form-data">
-                <table class="tblStyle01">
-                    <tr class="recipeTitle">
-                        <th>レシピタイトル</th>
-                        <td><input type="text" name="title" value="{{ recipe.title }}"></td>
-                    </tr>
-                    <tr class="recipeVideo">
-                        <th>動画</th>
-                        <td><input type="file" name="clip" accept="video/*"></td>
-                    </tr>
-                    <tr class="recipeExplain">
-                        <th>簡単な説明</th>
-                        <td><textarea name="explain" rows="3"><?= $explain ?></textarea></td>
-                    </tr>
-                    <tr class="recipeIngredient">
-                        <th>材料</th>
-                        <td>
-                            <input type="text" name="servings_for" placeholder="何人分">
-                            <dl>
-                                <dt><input type="text" name="name[]" value="" placeholder="材料"></dt>
-                                <dd><input type="text" name="quantity[]" value="" placeholder="分量"></dd>
-                                <dd><input type="button" name="" value="↑"><input type="button" name="" value="↓"></dd>
-                                <dt><input type="text" name="name[]" value="" placeholder="材料"></dt>
-                                <dd><input type="text" name="quantity[]" value="" placeholder="分量"></dd>
-                                <dd><input type="button" name="" value="↑"><input type="button" name="" value="↓"></dd>
-                                <dt><input type="text" name="name[]" value="" placeholder="材料"></dt>
-                                <dd><input type="text" name="quantity[]" value="" placeholder="分量"></dd>
-                                <dd><input type="button" name="" value="↑"><input type="button" name="" value="↓"></dd>
-                            </dl>
-                        </td>
-                    </tr>
-                    <tr class="recipePoint">
-                        <th>コツ</th>
-                        <td><input type="text" name="point" value="{{ flash.recipe.point }}"></td>
-                    </tr>
-                    <tr class="recipeMistake">
-                        <th>失敗談</th>
-                        <td><input type="text" name="mistake" value="{{ flash.recipe.mistake }}"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="submit" name="登録">
-                        </td>
-                    </tr>
-                </table>
-                <div class="btmnavi">
-                    <ul>
-                        <li><a href="">キャンセル</a></li>
-                        <li><a href="">保存</a></li>
-                    </ul>
-                </div>
-            </form>
-        </section>
-    </article>
-</div>
+    <div class="contents">
+        {% include 'include/flashMessage.twig' %}
+        <article>
+            <section>
+                <h2 class="ttl02">レシピ入力画面</h2>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <table class="tblStyle01">
+                        <tr class="recipeTitle">
+                            <th>レシピタイトル</th>
+                            <td><input type="text" name="title" value="{{ recipe.title }}"></td>
+                        </tr>
+                        <tr class="recipeVideo">
+                            <th>動画</th>
+                            <td><input type="file" name="clip" accept="video/*"></td>
+                        </tr>
+                        <tr class="recipeExplain">
+                            <th>簡単な説明</th>
+                            <td><textarea name="explain" rows="3"><?= $explain ?></textarea></td>
+                        </tr>
+                        <tr class="recipeIngredient">
+                            <th>材料</th>
+                            <td>
+                                <input type="text" name="servings_for" placeholder="何人分">
+                                <dl>
+                                    <dt><input type="text" name="name[]" value="" placeholder="材料"></dt>
+                                    <dd><input type="text" name="quantity[]" value="" placeholder="分量"></dd>
+                                    <dd><input type="button" name="" value="↑"><input type="button" name="" value="↓">
+                                    </dd>
+                                    <dt><input type="text" name="name[]" value="" placeholder="材料"></dt>
+                                    <dd><input type="text" name="quantity[]" value="" placeholder="分量"></dd>
+                                    <dd><input type="button" name="" value="↑"><input type="button" name="" value="↓">
+                                    </dd>
+                                    <dt><input type="text" name="name[]" value="" placeholder="材料"></dt>
+                                    <dd><input type="text" name="quantity[]" value="" placeholder="分量"></dd>
+                                    <dd><input type="button" name="" value="↑"><input type="button" name="" value="↓">
+                                    </dd>
+                                </dl>
+                            </td>
+                        </tr>
+                        <tr class="recipePoint">
+                            <th>コツ</th>
+                            <td><input type="text" name="point" value="{{ flash.recipe.point }}"></td>
+                        </tr>
+                        <tr class="recipeMistake">
+                            <th>失敗談</th>
+                            <td><input type="text" name="mistake" value="{{ flash.recipe.mistake }}"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="登録">
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="btmnavi">
+                        <ul>
+                            <li><a href="">キャンセル</a></li>
+                            <li><a href="">保存</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </section>
+        </article>
+    </div>
 {% endblock %}

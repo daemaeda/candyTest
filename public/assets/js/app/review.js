@@ -56,7 +56,7 @@ $(function () {
     function reviewFormat($memberId, $memberName, $comment) {
         var $content = '';
         $content += '<li>';
-        $content += '<a href="' + global + '/candy/public/user/'+ $memberId + '">';
+        $content += '<a href="' + global + '/candy/public/user/' + $memberId + '">';
         $content += '<div class="userIcon"><img src="img/icon.png" alt=""></div>';
         $content += '<span class="userName">' + $memberName + '</span>';
         $content += '</a>';
