@@ -33,33 +33,17 @@
                         <tr>
                             <th>カテゴリ（必須）</th>
                             <td>
-                                {% for category in categories %}
+                                {% for tag in tags %}
                                     {% set selected = false %}
-                                    {% for inputCategory in flash.input.category %}
-                                        {% if inputCategory == category.id %}
+                                    {% for inputTag in flash.input.tag %}
+                                        {% if inputTag == tag.id %}
                                             {% set selected = true %}
                                         {% endif %}
                                     {% endfor %}
-                                    <input type="checkbox" name="category[]" value="{{ category.id }}" {% if selected %}checked{% endif %} id="tag_{{ category.id }}">
-                                    <label for="tag_{{ category.id }}">{{ category.name }}</label>
+                                    <input type="checkbox" name="tag[]" value="{{ tag.id }}" {% if selected %}checked{% endif %} id="tag_{{ tag.id }}">
+                                    <label for="tag_{{ tag.id }}">{{ tag.name }}</label>
                                 {% endfor %}
-                                <p class="errorMessage"> {{ flash.category }}</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>シーン（必須）</th>
-                            <td>
-                                {% for scene in scenes %}
-                                    {% set selected = false %}
-                                    {% for inputScene in flash.input.scene %}
-                                        {% if inputScene == scene.id %}
-                                            {% set selected = true %}
-                                        {% endif %}
-                                    {% endfor %}
-                                    <input type="checkbox" name="scene[]" value="{{ scene.id }}" {% if selected %}checked{% endif %} id="tag_{{ scene.id }}">
-                                    <label for="tag_{{ scene.id }}">{{ scene.name }}</label>
-                                {% endfor %}
-                                <p class="errorMessage"> {{ flash.scene }}</p>
+                                <p class="errorMessage"> {{ flash.tag }}</p>
                             </td>
                         </tr>
                         <tr class="recipeIngredient">

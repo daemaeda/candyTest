@@ -59,8 +59,7 @@ Class RecipeController extends Controller
         $this->loadJs('app/recipe.js');
         $Tag = new Tag();
         try {
-            $this->data['categories'] = $Tag->getCategory();
-            $this->data['scenes'] = $Tag->getScene();
+            $this->data['tags'] = $Tag->all();
         } catch (\SQLiteException $e) {
             App::flash('messageError', "データベースエラーが発生しました。管理者にお問い合わせください。");
             Response::redirect($this->siteUrl('recipe'));
@@ -109,16 +108,10 @@ Class RecipeController extends Controller
             $isError = true;
         }
         //----------tagテーブル処理--------------//
-        if(!isset($input['category'])) {
-            App::flash('category', 'カテゴリを1つ以上選択してください');
+        if(!isset($input['tag'])) {
+            App::flash('tag', 'カテゴリを1つ以上選択してください');
             $isError = true;
         }
-
-        if(!isset($input['scene'])) {
-            App::flash('scene', 'シーンを1つ以上選択してください');
-            $isError = true;
-        }
-
         //----------ingredientsテーブル処理--------------//
         $checkValue = [];
         $ingredientsTemps = [];
@@ -237,22 +230,11 @@ Class RecipeController extends Controller
             }
 
             $TagRecipeRelations = new TagRecipeRelations();
-            foreach ($input['category'] as $category) {
-                $tag = [];
-                $tag['recipe_id'] = $recipeId;
-                $tag['tag_id'] = $category;
-                $TagRecipeRelations = $TagRecipeRelations->newInstance()->load($tag);
-                $TagRecipeRelations->validate();
-                if(!$TagRecipeRelations->hasErrors()) {
-                    $TagRecipeRelations->save();
-                }
-            }
-
-            foreach ($input['scene'] as $scene) {
-                $tag = [];
-                $tag['recipe_id'] = $recipeId;
-                $tag['tag_id'] = $scene;
-                $TagRecipeRelations = $TagRecipeRelations->newInstance()->load($tag);
+            foreach ($input['tag'] as $tag) {
+                $tagTable = [];
+                $tagTable['recipe_id'] = $recipeId;
+                $tagTable['tag_id'] = $tag;
+                $TagRecipeRelations = $TagRecipeRelations->newInstance()->load($tagTable);
                 $TagRecipeRelations->validate();
                 if(!$TagRecipeRelations->hasErrors()) {
                     $TagRecipeRelations->save();
