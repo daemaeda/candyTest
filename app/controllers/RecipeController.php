@@ -56,6 +56,7 @@ Class RecipeController extends Controller
     {
         $this->data['title'] = 'レシピ新規作成';
 
+        $this->loadJs('app/recipe.js');
         $Tag = new Tag();
         try {
             $this->data['categories'] = $Tag->getCategory();
