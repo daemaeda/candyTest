@@ -1,0 +1,56 @@
+@charset 'utf-8';
+
+#wrapper .contentIn {
+	padding: 0;
+}
+video {
+	width: 100%;
+	margin-bottom: 40px;
+}
+article {
+	width: 660px;
+	margin-right: 20px;
+	padding: 0 20px;
+	float: left;
+}
+
+aside {
+	width: 280px;
+	padding-right: 20px;
+	float: right;
+}
+
+.user {
+	letter-spacing: -.4em;
+}
+
+.userIcon {
+	display: inline-block;
+	width: 80px;
+	vertical-align: middle;
+	border-radius: 40px;
+	border: solid 1px #aaa;
+	overflow: hidden;
+}
+.userName {
+	display: inline-block;
+	margin-left: 16px;
+	font-size: 16px;
+	letter-spacing: normal;
+}
+
+.view {
+	float: right;
+}
+.view .count {
+	font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
