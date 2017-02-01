@@ -240,8 +240,10 @@ class Controller
     protected function loadBaseCss()
     {
         $this->loadCss("base.css");
+		$this->loadCss("cmn_layout.css");
         $this->loadCss("cmn_style.css");
-        $this->loadCss("style_smt.css");
+		$this->loadCss("header.css");
+        $this->loadCss("footer.css");
     }
 
     /**
@@ -249,7 +251,8 @@ class Controller
      */
     protected function loadBaseJs()
     {
-        $this->loadJs("jquery-1.10.2.js");
+		$this->loadJs("jquery-1.10.2.js");
+		$this->loadJs("app/common.js");
     }
 
     /**

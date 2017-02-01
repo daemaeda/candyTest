@@ -15,7 +15,8 @@ Class HomeController extends Controller
 		try {
 			$this->data['categories'] = $Tag->getCategory();
 			$this->data['scenes'] = $Tag->getScene();
-			$this->data['recipes'] = $findRecipes = $Recipe->all();
+			$findRecipes = $Recipe->findRecipe("", "", []);
+			$this->data['recipes'] = $findRecipes->get();
 		} catch (\SQLiteException $e) {
 			App::flash('messageError', "データベースエラーが発生しました。管理者にお問い合わせください。");
 			Response::redirect($this->siteUrl('report'));
