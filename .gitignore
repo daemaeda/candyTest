@@ -7,4 +7,4 @@ app/storage/cache/*
 
 public/video/*
 public/thumb/*
-sample.mp4
+*.mp4
