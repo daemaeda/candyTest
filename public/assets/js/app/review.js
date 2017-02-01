@@ -1,5 +1,5 @@
 $(function () {
-    $('.contents').on('click', '.toggleFavorite', function (e) {
+    $('.contentIn').on('click', '.toggleFavorite', function (e) {
         var $memberId = $(this).attr('data-member-id');
         var $recipeId = $(this).attr('data-recipe-id');
         e.preventDefault();
@@ -26,7 +26,7 @@ $(function () {
         });
     });
 
-    $('.contents').on('click', '.postReview', function (e) {
+    $('.contentIn').on('click', '.postReview', function (e) {
         var $memberId = $(this).attr('data-member-id');
         var $memberName = $(this).attr('data-member-name');
         var $recipeId = $(this).attr('data-recipe-id');

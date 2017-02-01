@@ -1,5 +1,5 @@
 $(function () {
-    $('.contents').on('click', '.addIngredient', function (e) {
+    $('.contentIn').on('click', '.addIngredient', function (e) {
         e.preventDefault();
         var $content = '';
         $content += '<dt><input type="text" name="name[]" value="" placeholder="材料"></dt>';
