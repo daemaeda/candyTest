@@ -15,14 +15,13 @@ body {
 header {
 	width: 100%;
 	margin: 0 auto;
-	border-top: solid 5px #F78275;
+	border-top: solid 5px #f78f82;
 	border-bottom: solid 1px #eee;
 	background-color: #fff;
 	z-index: 999;
 }
 header.fixed {
-	height: 55px;
-	padding-top: 10px;
+	height: 80px;
 	position: fixed;
 	top: 0;
 	background: rgba(255,255,255,.7);
@@ -58,7 +57,7 @@ header .contentIn {
 	font-size: 14px;
 	text-align: center;
 	border-radius: 3px;
-	background-color: #f78275;
+	background-color: #f78f82;
 	overflow: hidden;
 }
 #search a:before {
@@ -132,7 +131,7 @@ header .contentIn {
 	#mobile-head {
 		width: 100%;
 		height: 54px;
-		background: #fff;
+		background-color: #fff;
 		z-index: 999;
 		position: relative;
 	}
@@ -146,14 +145,28 @@ header .contentIn {
 	#search {
 		width: 32px;
 		min-width: 32px;
-		margin: 11px 72px 0 0;
+		margin: 13px 72px 0 0;
 	}
-	#search a {
+	#search-toggle {
+		display: block;
+		padding: 4px 0 3px 20px;
 		text-indent: -9999px;
+		border-radius: 3px;
+		background-color: #f78f82;
+		overflow: hidden;
 	}
-	#search a:before {
+	#search-toggle:before {
+		content: '';
+		display: block;
+		width: 13px;
+		height: 13px;
+		position: absolute;
+		top: 8px;
 		left: 10px;
+		background: url(../img/search.png) no-repeat;	
 	}
+
+	
 	#header-nav {
 		width: 100%;
 		height: 54px;
@@ -205,6 +218,144 @@ header .contentIn {
 	}
 }
 
+.clip-search {
+	width: 100%;
+	padding: 20px 0;
+	background-color: #eee;
+	overflow: hidden;
+}
+.clip-search .contentIn {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0 20px;
+	overflow: hidden;
+}
+.clip-search .ttl01 {
+	width: 15%;
+	margin-right: 5%;
+	float: left;
+}
+.clip-search form {
+	width: 80%;
+	margin-top: 5px;
+	letter-spacing: -.4em;
+	float: left;
+}
+.clip-search select {
+	width: 22%;
+	margin-right: 5%;
+	padding: 5px 8px;
+	font-size: 14px;
+	appearance: button;
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	border-radius: 3px;
+	background: #fff url(../img/arrow01.png) no-repeat;
+	background-position: right 8px center;
+
+}
+.clip-search input[type="text"] {
+	width: 30%;
+	padding: 7px 8px;
+	margin-right: 5%;
+	font-size: 14px;
+	border: 0;
+	border: solid 1px #aaa;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+.clip-search input[type="submit"] {
+	width: 11%;
+	padding: 6px 0 6px 20px;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	border: none;
+	border-radius: 3px;
+	background: #f78f82 url(../img/search.png) no-repeat center left 15px;
+}
+@media only screen and (max-width: 768px) {
+	.clip-search.open {
+		display: block;
+		height: auto;
+		-moz-transform: translateY(54px);
+		-webkit-transform: translateY(54px);
+		transform: translateY(54px);
+	}
+	.clip-search {
+		width: 100%;
+		height: 54px;
+		padding: 20px 0;
+		position: absolute;
+		top: 0;
+		z-index: 100;
+	}
+	.clip-search .contentIn {
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 20px;
+		overflow: hidden;
+	}
+	.clip-search .ttl01 {
+		width: auto;
+		margin-right: 0;
+		float: left;
+	}
+	.clip-search form {
+		width: 100%;
+		margin-top: 5px;
+		letter-spacing: -.4em;
+		float: left;
+	}
+	.clip-search select {
+		width: 160px;
+		margin-right: 40px;
+		padding: 5px 8px;
+		font-size: 14px;
+
+	}
+	.clip-search input[type="text"] {
+		width: 220px;
+		padding: 7px 8px;
+		margin-right: 40px;
+		border: solid 1px #aaa;
+	}
+	.clip-search input[type="submit"] {
+		width: 80px;
+		padding: 6px 0 6px 20px;
+		font-size: 14px;
+	}
+}
+
+
+#breadcrumb {
+	width: 100%;
+	margin: 0 auto;
+	padding: 6px 0;
+	border-bottom: solid 1px #eee;
+}
+#breadcrumb ul {
+	letter-spacing: -.4em;
+}
+#breadcrumb ul li {
+	display: inline-block;
+	vertical-align: middle;
+	letter-spacing: normal;
+}
+#breadcrumb ul li + li:before {
+	content: '＞';
+	padding: 0 1em;
+	display: inline-block;
+	vertical-align: middle;
+}
+#breadcrumb ul li a {
+	color: #f78f82;
+}
+@media only screen and (max-width: 768px) {
+}
+
+
 .contentIn {
 	width: 100%;
 	max-width: 960px;
@@ -216,7 +367,8 @@ header .contentIn {
 	display: block;
 }
 #wrapper {
-	width: 1024px;
+	width: 100%;
+	max-width: 1024px;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -233,6 +385,10 @@ header .contentIn {
 	}
 	#wrapper {
 		width: 100%;
+	}
+	#wrapper .contentIn {
+		max-width: 100%;
+		padding: 60px 2%;
 	}
 }
 

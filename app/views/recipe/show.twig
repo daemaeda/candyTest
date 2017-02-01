@@ -1,108 +1,129 @@
 {% extends 'master.twig' %}
 
 {% block body %}
-    <div class="breadcrumb">
-        <ul>
-            <li><a href="index.php">TOP{{ fav }}</a></li>
-            <li><a href="search_result.php">チョコレート</a></li>
-            <li><a href="">チョコレートクッキー</a></li>
-        </ul>
-    </div>
-    <div class="tagList">
-        <h2>この動画につけられているタグ：</h2>
-        <ul>
-            {% for tag in tags %}
-                <li>{{ tag.tag().getResults().name }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="contents">
-        <article>
-            <section>
-                <video controls autoplay>
-                    <source src="/candy/public/video/{{ recipe.member_id }}/{{ recipe.clip }}">
-                    <p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
-                </video>
-                <div class="clipInfo">
-                    <a href="">
-                        <div class="userIcon"><img src="img/icon.png" alt=""></div>
-                        <span class="userName">{{ user.name }}</span>
-                    </a>
-                    <div class="play">
-                        <span class="count">{{ recipe.views }}</span>
-                        <span>views</span>
-                    </div>
-                    <div class="dlBtn">
-                        <a href="#">
-                            <span>レシピを保存</span>
-                        </a>
-                    </div>
-                    <div class="favoBtn">
-                        <a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}"
-                           class="toggleFavorite {% if favorite %}on{% endif %}" href="#">
-                            <span>お気に入りに保存</span>
-                        </a>
-                    </div>
-                    <div class="favoCount">
-                        <span class="loves">{{ loves|default("0") }}</span>
-                        <span>loves!</span>
-                    </div>
-                </div>
-            </section>
-            <section class="recipeInfo">
-                <h2 class="ttl01"><?= $title ?></h2>
-                <div class="description">
-                    <?= $desc ?>
-                </div>
-            </section>
-            <section class="ingredient">
-                <h2 class="ttl02">材料<span>（{{ recipe.servings_for }}）</span></h2>
-                <dl>
-                    {{ ingredient in recipe.ingredients().getResults() }}
-                    {% for ingredient in recipe.ingredients().getResults() %}
-                        <dt>{{ ingredient.name }}</dt>
-                        <dd>{{ ingredient.quantity }}</dd>
-                    {% endfor %}
-                    <!-- $i_name $quantity -->
-                </dl>
-            </section>
-            <section class="recipeStep">
-                <h2 class="ttl02">説明</h2>
-                <p>{{ recipe.explain }}</p>
-                <section class="point">
-                    <h2 class="ttl02">コツ・ポイント</h2>
-                    <p>{{ recipe.point }}</p>
-                </section>
-                <section class="mistake">
-                    <h2 class="ttl02">あいうえおさんの失敗談</h2>
-                    <p>{{ recipe.mistake }}</p>
-                </section>
-                <section class="comment">
-                    <h2 class="ttl02">感想や質問(<span class="commentCount">{{ recipe.review().getResults().count }}</span>件)</h2>
-                    <div class="commentList">
-                        <ul>
-                            {% for review in recipe.review().getResults() %}
-                                <li>
-                                    <a href="{{ siteUrl('user') }}/{{ review.member_id }}">
-                                        <div class="userIcon"><img src="img/icon.png" alt=""></div>
-                                        <span class="userName">{{ review.member().getResults().name }}</span>
-                                    </a>
-                                    <p class="comment">
-                                        {{ review.comment }}
-                                    </p>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="review">
-                        <textarea name="comment" id="reviewComment" cols="30" rows="10"></textarea>
-                        <a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}" data-member-name="{{ userName }}"
-                           class="postReview" href="#">
-                            <span>投稿</span>
-                        </a>
-                    </div>
-                </section>
-            </section>
-        </article>
-    </div>
+	<div id="breadcrumb">
+		<div class="contentIn">
+			<ul>
+				<li><a href="{{ siteUrl('') }}">TOP</a></li>
+				<li><a href="">チョコレート</a></li>
+				<li>{{ recipe.title }}</li>
+			</ul>
+		</div>
+	</div>
+	<div id="wrapper">
+
+		<div class="contentIn">
+			<video controls autoplay>
+				<source src="/candy/public/video/{{ recipe.member_id }}/{{ recipe.clip }}">
+				<p>動画を再生するには、videoタグをサポートしたブラウザが必要です。</p>
+			</video>
+			<article>
+				<section class="clipInfo">
+					<h2 class="ttl02">{{ recipe.title }}</h2>
+					<div class="user">
+						<a href="">
+							<span class="userIcon"><img src="/candy/public/assets/img/c_blue.png" alt=""></span>
+							<span class="userName">{{recipe.member().getResults().name }}
+							</span>
+						</a>
+					</div>
+					<div class="view">
+						<span class="count">{{ recipe.views }}</span>
+						<span>views</span>
+					</div>
+					<div class="favoArea">
+						<a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}"
+						   class="toggleFavorite {% if favorite %}on{% endif %}" href="#">
+							<span class="loves">{{ loves|default("0") }}</span>
+							<span>loves!</span>
+						</a>
+					</div>
+					<div class="tagList">
+						<ul>
+							{% for tag in tags %}
+							<li>{{ tag.tag().getResults().name }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</section>
+				<section class="description">
+					<h2 class="ttl03">説明</h2>
+					<p>{{ recipe.explain }}</p>
+				</section>
+				<section class="ingredient">
+					<h2 class="ttl03">材料<span>（{{ recipe.servings_for }}）</span></h2>
+					<dl>
+						{{ ingredient in recipe.ingredients().getResults() }}
+						{% for ingredient in recipe.ingredients().getResults() %}
+						<dt>{{ ingredient.name }}</dt>
+						<dd>{{ ingredient.quantity }}</dd>
+						{% endfor %}
+					</dl>
+				</section>
+				<section class="point">
+					<h2 class="ttl03">コツ・ポイント</h2>
+					<p>{{ recipe.point }}</p>
+				</section>
+				<section class="mistake">
+					<h2 class="ttl03">失敗談</h2>
+					<p>{{ recipe.mistake }}</p>
+				</section>
+				<section class="comment">
+					<h2 class="ttl03">感想や質問(<span class="commentCount">{{ recipe.review().getResults().count }}</span>件)</h2>
+					<div class="commentList">
+						<ul>
+							{% for review in recipe.review().getResults() %}
+							<li>
+								<a href="{{ siteUrl('user') }}/{{ review.member_id }}">
+									<div class="userIcon"><img src="" alt=""></div>
+									<span class="userName">{{ review.member().getResults().name }}</span>
+								</a>
+								<p class="comment">
+									{{ review.comment }}
+								</p>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="review">
+						<textarea name="comment" id="reviewComment" cols="30" rows="10"></textarea>
+						<a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}" data-member-name="{{ userName }}"
+						   class="postReview" href="#">
+							<span>投稿</span>
+						</a>
+					</div>
+				</section>
+			</article>
+			<aside>
+				<h2 class="ttl01">この動画に関連する動画<span>Related Clip</span></h2>
+				<ul class="clipList related">
+					{% for recipe in recipes %}
+					<li>
+						<div class="thumb">
+							<a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">
+								<img src="/candy/public/thumb/{{ recipe.member_id }}/{{ recipe.thumb }}" alt="">
+								<div class="status">
+									<span class="favo">♡99,999</span>
+									<span class="time">2:10</span>
+								</div>
+							</a>
+						</div>
+						<div class="clipInfo">
+							<div class="clipTitle"><a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">{{ recipe.title }}</a></div>
+							<div class="userName">
+								<a href="{{ siteUrl('recipe') }}/{{ recipe.id }}"><span>{{ recipe.member_name }}</span></a>
+							</div>
+							{% set tags = recipe.tag|split(',') %}
+							<ul class="tagList">
+								{% for tag in tags %}
+								<li><a href="">{{ tag }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</aside>
+		</div>
+	</div>
 {% endblock %}

@@ -258,7 +258,8 @@ Class RecipeController extends Controller
     // 詳細画面
     public function show($id)
     {
-        $this->loadJs('app/review.js');
+		$this->loadJs('app/review.js');
+		$this->loadCss('recipe_detail.css');
         $Recipe = new Recipe();
         $MemberFav = new MemberFavoriteRecipe();
         $TagRecipeRelations = new TagRecipeRelations();

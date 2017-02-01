@@ -10,23 +10,29 @@
 				<h2 class="ttl01">人気の動画<span>Popular Clip</span></h2>
 				<ul class="clipList hot">
 					{% for recipe in recipes %}
+					
 					<li>
-						<a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">
-							<div class="thumb">
+						<div class="thumb">
+							<a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">
 								<img src="/candy/public/thumb/{{ recipe.member_id }}/{{ recipe.thumb }}" alt="">
 								<div class="status">
 									<span class="favo">♡99,999</span>
 									<span class="time">2:10</span>
 								</div>
+							</a>
+						</div>
+						<div class="clipInfo">
+							<div class="clipTitle"><a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">{{ recipe.title }}</a></div>
+							<div class="userName">
+								<a href="{{ siteUrl('recipe') }}/{{ recipe.id }}"><span>{{ recipe.member_name }}</span></a>
 							</div>
-							<div class="clipInfo">
-								<div class="clipTitle">{{ recipe.title }}</div>
-								<div class="clipName">
-									<span class="userName">{{ recipe.member_name }}</span>
-								</div>
-								<div class="tag">{{ recipe.tag }}</div>
-							</div>
-						</a>
+							{% set tags = recipe.tag|split(',') %}
+							<ul class="tagList">
+								{% for tag in tags %}
+								<li><a href="">{{ tag }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
 					</li>
 					{% endfor %}
 				</ul>
