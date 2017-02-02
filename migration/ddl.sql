@@ -66,10 +66,10 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id`, `name`, `img_url`, `mail`, `login_id`, `password`, `pos_code`, `address`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'RIKA☆MAMA', NULL, 'test1@exp.com', '1', 'pass', NULL, NULL, '2016-12-28 02:44:44', '2016-12-28 13:59:45', NULL),
-(2, 'まくど', '', 'test2@exp.com', '2', 'pass', NULL, NULL, '2016-12-28 02:56:43', '2016-12-28 13:59:54', NULL),
-(5, 'まいける', NULL, 'test3@exp.com', '3', 'pas', NULL, NULL, '2016-12-28 02:57:22', '2016-12-28 13:59:54', NULL),
-(8, '土佐犬', NULL, 'test4@exp.com', '4', 'pas', NULL, NULL, '2016-12-28 02:58:17', '2016-12-28 13:59:54', NULL);
+(1, 'ハル', NULL, 'test1@exp.com', '1', 'pass', NULL, NULL, '2016-12-28 02:44:44', '2016-12-28 13:59:45', NULL),
+(2, 'モード', '', 'test2@exp.com', '2', 'pass', NULL, NULL, '2016-12-28 02:56:43', '2016-12-28 13:59:54', NULL),
+(3, 'イセン', NULL, 'test3@exp.com', '3', 'pas', NULL, NULL, '2016-12-28 02:57:22', '2016-12-28 13:59:54', NULL),
+(4, 'ゆみこ', NULL, 'test4@exp.com', '4', 'pas', NULL, NULL, '2016-12-28 02:58:17', '2016-12-28 13:59:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,6 +105,7 @@ CREATE TABLE `recipe` (
   `mistake` text NOT NULL,
   `view` bigint(20) UNSIGNED DEFAULT 0,
   `love` bigint(20) UNSIGNED DEFAULT 0,
+  `video_time` time,
   `member_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
