@@ -6,7 +6,7 @@ class Recipe extends Model
 {
 
     protected $table = 'recipe';
-    protected $fillable = ['title', 'clip', 'thumb', 'servings_for', 'explain', 'point', 'mistake', 'view', 'member_id'];
+    protected $fillable = ['title', 'clip', 'thumb', 'servings_for', 'explain', 'point', 'mistake', 'view', 'love', 'member_id'];
 
     protected static function rules()
     {
