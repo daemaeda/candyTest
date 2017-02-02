@@ -18,11 +18,24 @@ article section {
 	padding: 16px 0;
 	border-bottom: solid 1px #aaa;
 }
+article section .ttl03 {
+	margin-bottom: 8px;
+}
+.ttl03 span {
+	margin-left: 16px;
+	font-size: 14px;
+}
 
 .clipInfo {
 	padding: 0;
 }
-
+.ttl02 span {
+	font-size: 12px;
+	font-weight: normal;
+}
+.ttl02 .count:before {
+	content: '...';
+}
 .user {
 	margin-bottom: 16px;
 	letter-spacing: -.4em;
@@ -30,7 +43,7 @@ article section {
 
 .userIcon {
 	display: inline-block;
-	width: 80px;
+	width: 40px;
 	vertical-align: middle;
 	border-radius: 40px;
 	border: solid 1px #aaa;
@@ -43,14 +56,8 @@ article section {
 	letter-spacing: normal;
 }
 
-.viewArea {
-	margin-bottom: 12px;
-	text-align: right;
-}
-.viewArea .count {
-	font-size: 18px;
-}
 .favoArea {
+	margin: 4px 0 0;
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
@@ -77,8 +84,29 @@ article section {
 	margin: 0 8px 8px 0;
 }
 
+.ingredient table {
+	margin-bottom: 
+}
+.ingredient tr:nth-of-type(odd) {
+	background-color: #eee;
+}
+.ingredient th,
+.ingredient td {
+	padding: 8px;
+	word-break: break-word;
+	vertical-align: middle;
+}
+.ingredient th {
+	width: 460px;
+	font-weight: normal;
+	text-align: left;
+}
+.ingredient td {
+	width: 160px;
+	text-align: right;
+}
 
-
+　
 
 
 aside {

@@ -19,7 +19,8 @@
 			</video>
 			<article>
 				<section class="clipInfo">
-					<h2 class="ttl02">{{ recipe.title }}</h2>
+					<h2 class="ttl02">{{ recipe.title }}
+						<span class="count">{{ recipe.view }}</span><span>views</span></h2>
 					<div class="user fL">
 						<a href="">
 							<span class="userIcon"><img src="/candy/public/assets/img/c_blue.png" alt=""></span>
@@ -27,16 +28,10 @@
 							</span>
 						</a>
 					</div>
-					<div class="fR">
-						<div class="viewArea">
-							<span class="count">{{ recipe.view }}</span>
-							<span>views</span>
-						</div>
-						<div class="favoArea">
-							<a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}"
-							   class="toggleFavorite {% if favorite %}on{% endif %}" href="#">{{ recipe.love|default("0") }}
-							</a>
-						</div>
+					<div class="favoArea fR">
+						<a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}"
+						   class="toggleFavorite {% if favorite %}on{% endif %}" href="#">{{ recipe.love|default("0") }}
+						</a>
 					</div>
 					<div class="tagList">
 						<ul>
@@ -48,17 +43,19 @@
 				</section>
 				<section class="description">
 					<h2 class="ttl03">説明</h2>
-					<p>{{ recipe.explain }}</p>
+					<p>{{ recipe.explain }}ああああああああああああああああああああああああああああああああああああああああああ</p>
 				</section>
 				<section class="ingredient">
 					<h2 class="ttl03">材料<span>（{{ recipe.servings_for }}）</span></h2>
-					<dl>
+					<table>
 						{{ ingredient in recipe.ingredients().getResults() }}
 						{% for ingredient in recipe.ingredients().getResults() %}
-						<dt>{{ ingredient.name }}</dt>
-						<dd>{{ ingredient.quantity }}</dd>
+						<tr>
+							<th class="content">{{ ingredient.name }}</th>
+							<td class="content">{{ ingredient.quantity }}</td>
+						</tr>
 						{% endfor %}
-					</dl>
+					</table>
 				</section>
 				<section class="point">
 					<h2 class="ttl03">コツ・ポイント</h2>

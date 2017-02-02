@@ -17,4 +17,6 @@ $(function() {
 	$('#search-toggle').click(function(){
 		$search.toggleClass('open');
 	});
+	
+	$('.clipList li').matchHeight();
 });
