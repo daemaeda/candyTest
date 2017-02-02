@@ -1,6 +1,9 @@
 {% extends 'master.twig' %}
 
 {% block body %}
+	{% for video in relatedVideos %}
+		{{ dump(video) }}
+	{% endfor %}
 	<div id="breadcrumb">
 		<div class="contentIn">
 			<ul>
