@@ -271,7 +271,6 @@ Class RecipeController extends Controller
             $this->data['favorite'] = $MemberFav->isFavorite();
             $this->data['title'] = $findRecipe->title;
             $this->data['recipe'] = $findRecipe;
-            $this->data['loves'] = $MemberFav->getFavCount();
             $this->data['tags'] = $TagRecipeRelations->getTags();
             App::render('recipe/show.twig', $this->data);
         } catch (\SQLiteException $e) {

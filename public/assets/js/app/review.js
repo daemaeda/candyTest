@@ -14,13 +14,13 @@ $(function () {
             success: function (resp) {
                 if (resp.code == 200) {
                     $('.toggleFavorite').toggleClass('on');
-                    var $count = $('.loves').text();
+                    var $count = $('.toggleFavorite').text();
                     if (resp.isCountUp) {
                         $count++;
                     } else {
                         $count--
                     }
-                    $('.loves').text($count);
+                    $('.toggleFavorite').text($count);
                 }
             }
         });

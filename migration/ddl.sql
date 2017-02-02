@@ -104,6 +104,7 @@ CREATE TABLE `recipe` (
   `point` text NOT NULL,
   `mistake` text NOT NULL,
   `view` bigint(20) UNSIGNED DEFAULT 0,
+  `love` bigint(20) UNSIGNED DEFAULT 0,
   `member_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
