@@ -7,7 +7,6 @@ class TagRecipeRelations extends Model
 
     protected $table = 'tag_recipe_relations';
     protected $fillable = ['recipe_id', 'tag_id'];
-    private $recipeId;
 
     public function recipe()
     {
