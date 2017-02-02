@@ -69,15 +69,16 @@
 					<p>{{ recipe.mistake }}</p>
 				</section>
 				<section class="comment">
-					<h2 class="ttl03">感想や質問(<span class="commentCount">{{ recipe.review().getResults().count }}</span>件)</h2>
+					<h2 class="ttl03">感想や質問<span class="commentCount">({{ recipe.review().getResults().count }}件)</span></h2>
 					<div class="commentList">
 						<ul>
 							{% for review in recipe.review().getResults() %}
 							<li>
 								<a href="{{ siteUrl('user') }}/{{ review.member_id }}">
-									<div class="userIcon"><img src="" alt=""></div>
+									<div class="userIcon"><img src="/candy/public/assets/img/{{recipe.member().getResults().img_url}}" alt=""></div>
 									<span class="userName">{{ review.member().getResults().name }}</span>
 								</a>
+								<p class="date">{{ review.created_at|date('Y年m月d日 H:i') }}</p>
 								<p class="comment">
 									{{ review.comment }}
 								</p>
@@ -86,10 +87,10 @@
 						</ul>
 					</div>
 					<div class="review">
-						<textarea name="comment" id="reviewComment" cols="30" rows="10"></textarea>
+						<textarea name="comment" id="reviewComment"></textarea>
 						<a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}" data-member-name="{{ userName }}"
 						   class="postReview" href="#">
-							<span>投稿</span>
+						   <span>投稿</span>
 						</a>
 					</div>
 				</section>
@@ -101,7 +102,7 @@
 					<li>
 						<div class="thumb">
 							<a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">
-								<img src="/candy/public/thumb/{{ recipe.member_id }}/{{ recipe.thumb }}" alt="">
+								<img src="/candy/public/assets/img/{{recipe.member().getResults().img_url}}" alt="">
 								<div class="status">
 									<span class="favo">♡99,999</span>
 									<span class="time">2:10</span>

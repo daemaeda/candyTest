@@ -106,7 +106,55 @@ article section .ttl03 {
 	text-align: right;
 }
 
-　
+.commentList {
+	margin-bottom: 24px;
+}
+.commentList li:first-child {
+	border-top: dashed 1px #aaa;
+}
+.commentList li {
+	padding: 8px 0;
+	border-bottom: dashed 1px #aaa;
+}
+.commentList li .userIcon {
+	width: 28px;
+	height: 28px;
+	border-radius: 15px;
+}
+.commentList li .userName {
+	margin-left: 8px;
+	font-size: 12px;
+}
+.commentList li a {
+	float: left;
+}
+.commentList li .date {
+	margin-left: 16px;
+	color: #aaa;
+	font-size: 12px;
+	line-height: 26px;
+	float: left;
+}
+.commentList li .comment {
+	margin-left: 40px;
+	clear: left;
+}
+.review textarea {
+	width: 500px;
+	resize: none;
+	float: left;
+}
+.review .postReview {
+	display: block;
+	width: 80px;
+	margin-left: 34px;
+	padding: 4px 0;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	background-color: #f78f82;
+	float: left;
+}
 
 
 aside {
