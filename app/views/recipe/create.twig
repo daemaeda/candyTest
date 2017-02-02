@@ -72,14 +72,14 @@
                         <tr class="recipePoint">
                             <th>コツ</th>
                             <td>
-                                <input type="text" name="point" value="{{ flash.input.point|default('') }}">
+                                <textarea name="point" id="" cols="30" rows="10">{{ flash.input.point|default('') }}</textarea>
                                 <p class="errorMessage"> {{ flash.recipe.point|first }}</p>
                             </td>
                         </tr>
                         <tr class="recipeMistake">
                             <th>失敗談</th>
                             <td>
-                                <input type="text" name="mistake" value="{{ flash.input.mistake|default('') }}">
+                                <textarea name="mistake" id="" cols="30" rows="10">{{ flash.input.mistake|default('') }}</textarea>
                                 <p class="errorMessage"> {{ flash.recipe.mistake|first }}</p>
                             </td>
                         </tr>

@@ -46,7 +46,7 @@
 				</section>
 				<section class="description">
 					<h2 class="ttl03">説明</h2>
-					<p>{{ recipe.explain }}ああああああああああああああああああああああああああああああああああああああああああ</p>
+					<p>{{ recipe.explain|nl2br }}</p>
 				</section>
 				<section class="ingredient">
 					<h2 class="ttl03">材料<span>（{{ recipe.servings_for }}）</span></h2>
@@ -62,11 +62,11 @@
 				</section>
 				<section class="point">
 					<h2 class="ttl03">コツ・ポイント</h2>
-					<p>{{ recipe.point }}</p>
+					<p>{{ recipe.point|nl2br }}</p>
 				</section>
 				<section class="mistake">
 					<h2 class="ttl03">失敗談</h2>
-					<p>{{ recipe.mistake }}</p>
+					<p>{{ recipe.mistake|nl2br }}</p>
 				</section>
 				<section class="comment">
 					<h2 class="ttl03">感想や質問(<span class="commentCount">{{ recipe.review().getResults().count }}</span>件)</h2>

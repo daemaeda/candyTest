@@ -97,7 +97,7 @@ Class RecipeController extends Controller
         $recipeTable['explain'] = $input['explain'];
         $recipeTable['point'] = $input['point'];
         $recipeTable['mistake'] = $input['mistake'];
-        $recipeTable['member_id'] = 1;
+        $recipeTable['member_id'] = $_SESSION['userId'];
 
         $Recipe = new Recipe();
         $Recipe->load($recipeTable);
@@ -169,7 +169,7 @@ Class RecipeController extends Controller
         }
 
         //----------フォルダ作成（なければ）-------------/
-        $memberId = 1;
+        $memberId = $_SESSION['userId'];
         // TODO: 本来はCONFクラスにまとめる
         $userVideoFolderPath = VIDEO_PATH . $memberId;
         $userThumbFolderPath = THUMB_PATH . $memberId;
