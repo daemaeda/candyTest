@@ -252,6 +252,7 @@ class Controller
     protected function loadBaseJs()
     {
 		$this->loadJs("jquery-1.10.2.js");
+		$this->loadJs("app/jquery.matchHeight.js");
 		$this->loadJs("app/common.js");
     }
 
