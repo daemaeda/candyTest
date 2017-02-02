@@ -22,8 +22,10 @@ class Controller
         $this->data['title'] = '';
 
         /** loginUser */
-        $this->data['userId'] = isset($_SESSION['userId']) ? $_SESSION['userId'] : "1";
-        $this->data['userName'] = isset($_SESSION['userName']) ? $_SESSION['userName'] : "RIKA☆MAMA";
+        $this->data['userId'] = isset($_SESSION['userId']) ? $_SESSION['userId'] : "3";
+        $this->data['userName'] = isset($_SESSION['userName']) ? $_SESSION['userName'] : "ハル";
+
+        $_SESSION['userId'] = isset($_SESSION['userId']) ? $_SESSION['userId'] : "4";
 
         /** meta tag and information */
         $this->data['meta'] = array();

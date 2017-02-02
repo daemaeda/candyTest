@@ -7,7 +7,7 @@
 	<div id="breadcrumb">
 		<div class="contentIn">
 			<ul>
-				<li><a href="{{ siteUrl('') }}">TOP</a></li>
+				<li><a href="{{ siteUrl('/') }}">TOP</a></li>
 				<li><a href="">チョコレート</a></li>
 				<li>{{ recipe.title }}</li>
 			</ul>
@@ -26,7 +26,7 @@
 						<span class="count">{{ recipe.view }}</span><span>views</span></h2>
 					<div class="user fL">
 						<a href="">
-							<span class="userIcon"><img src="/candy/public/assets/img/c_blue.png" alt=""></span>
+							<span class="userIcon"><img src="/candy/public/assets/img/{{ recipe.member().getResults().img_url }}" alt=""></span>
 							<span class="userName">{{recipe.member().getResults().name }}
 							</span>
 						</a>
@@ -46,7 +46,7 @@
 				</section>
 				<section class="description">
 					<h2 class="ttl03">説明</h2>
-					<p>{{ recipe.explain }}ああああああああああああああああああああああああああああああああああああああああああ</p>
+					<p>{{ recipe.explain|nl2br }}</p>
 				</section>
 				<section class="ingredient">
 					<h2 class="ttl03">材料<span>（{{ recipe.servings_for }}）</span></h2>
@@ -62,11 +62,11 @@
 				</section>
 				<section class="point">
 					<h2 class="ttl03">コツ・ポイント</h2>
-					<p>{{ recipe.point }}</p>
+					<p>{{ recipe.point|nl2br }}</p>
 				</section>
 				<section class="mistake">
 					<h2 class="ttl03">失敗談</h2>
-					<p>{{ recipe.mistake }}</p>
+					<p>{{ recipe.mistake|nl2br }}</p>
 				</section>
 				<section class="comment">
 					<h2 class="ttl03">感想や質問<span class="commentCount">({{ recipe.review().getResults().count }}件)</span></h2>
@@ -104,7 +104,7 @@
 							<a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">
 								<img src="/candy/public/assets/img/{{recipe.member().getResults().img_url}}" alt="">
 								<div class="status">
-									<span class="favo">♡99,999</span>
+									<span class="favo">♡{{ recipe.love }}</span>
 									<span class="time">2:10</span>
 								</div>
 							</a>
