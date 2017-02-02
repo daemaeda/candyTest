@@ -264,10 +264,11 @@ Class RecipeController extends Controller
         $MemberFav = new MemberFavoriteRecipe();
         $TagRecipeRelations = new TagRecipeRelations();
         try {
-            DB::table('recipe')->where('id', '=', $id)->increment('view');
+            DB::table('recipe')->where('id', $id)->increment('view');
             $findRecipe = $Recipe::findOrFail($id);
             $MemberFav->setRecipeId($id);
             $TagRecipeRelations->setRecipeId($id);
+            $this->data['relatedVideos'] = $Recipe->findRelatedVideo($TagRecipeRelations->getTags());
             $this->data['favorite'] = $MemberFav->isFavorite();
             $this->data['title'] = $findRecipe->title;
             $this->data['recipe'] = $findRecipe;
