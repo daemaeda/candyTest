@@ -20,28 +20,28 @@
 			<article>
 				<section class="clipInfo">
 					<h2 class="ttl02">{{ recipe.title }}</h2>
-					<div class="user">
+					<div class="user fL">
 						<a href="">
 							<span class="userIcon"><img src="/candy/public/assets/img/c_blue.png" alt=""></span>
 							<span class="userName">{{recipe.member().getResults().name }}
 							</span>
 						</a>
 					</div>
-					<div class="view">
-						<span class="count">{{ recipe.views }}</span>
-						<span>views</span>
-					</div>
-					<div class="favoArea">
-						<a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}"
-						   class="toggleFavorite {% if favorite %}on{% endif %}" href="#">
-							<span class="loves">{{ loves|default("0") }}</span>
-							<span>loves!</span>
-						</a>
+					<div class="fR">
+						<div class="viewArea">
+							<span class="count">{{ recipe.view }}</span>
+							<span>views</span>
+						</div>
+						<div class="favoArea">
+							<a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}"
+							   class="toggleFavorite {% if favorite %}on{% endif %}" href="#">{{ recipe.love|default("0") }}
+							</a>
+						</div>
 					</div>
 					<div class="tagList">
 						<ul>
 							{% for tag in tags %}
-							<li>{{ tag.tag().getResults().name }}</li>
+							<li><a href="">{{ tag.tag().getResults().name }}</a></li>
 							{% endfor %}
 						</ul>
 					</div>

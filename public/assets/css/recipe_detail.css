@@ -14,13 +14,17 @@ article {
 	float: left;
 }
 
-aside {
-	width: 280px;
-	padding-right: 20px;
-	float: right;
+article section {
+	padding: 16px 0;
+	border-bottom: solid 1px #aaa;
+}
+
+.clipInfo {
+	padding: 0;
 }
 
 .user {
+	margin-bottom: 16px;
 	letter-spacing: -.4em;
 }
 
@@ -39,16 +43,49 @@ aside {
 	letter-spacing: normal;
 }
 
-.view {
-	float: right;
+.viewArea {
+	margin-bottom: 12px;
+	text-align: right;
 }
-.view .count {
+.viewArea .count {
 	font-size: 18px;
 }
+.favoArea {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.favoArea a {
+	display: block;
+	width: 45px;
+	height: 32px;
+	padding-left: 40px;
+	text-align: left;
+	line-height: 32px;
+	background: url(../img/favo_off.png) no-repeat;
+}
+.favoArea a.on {
+	background: url(../img/favo_on.png) no-repeat;
+
+}
+.tagList {
+	margin-bottom: 8px;
+	clear: both;
+}
+.tagList li {
+	margin: 0 8px 8px 0;
+}
 
 
 
 
+
+aside {
+	width: 280px;
+	padding-right: 20px;
+	float: right;
+}
 
 
 

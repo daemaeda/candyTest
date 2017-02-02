@@ -110,24 +110,24 @@ ul:after, header:after, section:after, .clearfix:after,
 	transition: .4s;
 	text-decoration: underline;
 }
-.clipList .tagList {
+.tagList {
 	margin-top: 8px;
 	letter-spacing: -.4em;
 }
-.clipList .tagList li {
+.tagList li {
 	display: inline-block;
 	margin: 0 4px 4px 0;
 	letter-spacing: normal;
 	border-radius: 3px;
 	border: solid 1px #f78f82;
 }
-.clipList .tagList a {
+.tagList a {
 	padding: 0 4px;
 	color: #f78f82;
 	font-size: 12px;
 	display: block;
 }
-.clipList .tagList li:hover a {
+.tagList li:hover a {
 	color: #fff;
 	opacity: 1;
 	transition: .4s;
@@ -177,24 +177,24 @@ ul:after, header:after, section:after, .clearfix:after,
 		transition: .4s;
 		text-decoration: underline;
 	}
-	.clipList .tagList {
+	.tagList {
 		margin-top: 8px;
 		letter-spacing: -.4em;
 	}
-	.clipList .tagList li {
+	.tagList li {
 		display: inline-block;
 		margin: 0 4px 4px 0;
 		letter-spacing: normal;
 		border-radius: 3px;
 		border: solid 1px #f78f82;
 	}
-	.clipList .tagList a {
+	.tagList a {
 		padding: 0 4px;
 		color: #f78f82;
 		font-size: 12px;
 		display: block;
 	}
-	.clipList .tagList li:hover a {
+	.tagList li:hover a {
 		color: #fff;
 		opacity: 1;
 		transition: .4s;
