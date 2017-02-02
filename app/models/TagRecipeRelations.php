@@ -2,7 +2,8 @@
 
 use Candy\Base\Model;
 
-class TagRecipeRelations extends Model {
+class TagRecipeRelations extends Model
+{
 
     protected $table = 'tag_recipe_relations';
     protected $fillable = ['recipe_id', 'tag_id'];
@@ -18,23 +19,8 @@ class TagRecipeRelations extends Model {
         return $this->belongsTo('Tag');
     }
 
-    /**
-     * @return mixed
-     */
-    public function getRecipeId()
+    public function getTags($recipeId)
     {
-        return $this->recipeId;
-    }
-
-    /**
-     * @param mixed $recipeId
-     */
-    public function setRecipeId($recipeId)
-    {
-        $this->recipeId = $recipeId;
-    }
-
-    public function getTags() {
-        return $this->newQuery()->where('recipe_id', $this->getRecipeId())->get();
+        return $this->newQuery()->where('recipe_id', $recipeId)->get();
     }
 }
