@@ -206,7 +206,7 @@ Class RecipeController extends Controller
 
         //----------サムネイル作成--------------//
         // http://qiita.com/tukiyo3/items/d8caac4fcf8ad5a7167b
-        exec(FFMPEG_APP_PATH." -i ".$uploadFilePath." -ss 5 -vframes 1 -f image2 -s 320x240 ".$userThumbFolderPath."/".$clipUploadFileName.".jpg");
+        exec(FFMPEG_APP_PATH." -i ".$uploadFilePath." -ss 5 -vframes 1 -f image2 -s 280x158 -aspect 16:9 ".$userThumbFolderPath."/".$clipUploadFileName.".jpg");
         //-------------判定---------------
         $db = \DB::getConnection();
         try {
