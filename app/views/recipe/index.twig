@@ -2,18 +2,45 @@
 
 {% block body %}
     {% include 'include/searchForm.twig' %}
-
-    {% for recipe in recipes %}
-        <ul>
-            <li>id: <a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">{{ recipe.id }}</a></li>
-            <li>タイトル: {{ recipe.title|truncate(16) }}</li>
-            <li>サムネ：<img src="/candy/public/{{ recipe.thumb }}" alt=""></li>
-            <li>説明文: {{ recipe.explain|truncate(38) }}</li>
-            <li>ユーザー名: {{ recipe.member_name }}</li>
-            <li>タグ: {{ recipe.tag }}</li>
-        </ul>
-        {{ dump(recipe) }}
-        <hr>
-    {% endfor %}
-
+    <div id="wrapper">
+        <div class="contentIn">
+            <article>
+                <section>
+                    <h2 class="ttl01">検索結果<span>{{ inputKeyword }} {{ categoryName|first.name }} {{ sceneName|first.name }}</span></h2>
+                    <ul class="clipList hot">
+                        {% for recipe in recipes %}
+                            <li>
+                                <div class="thumb">
+                                    <a href="{{ siteUrl('recipe') }}/{{ recipe.id }}">
+                                        <img src="/candy/public/thumb/{{ recipe.member_id }}/{{ recipe.thumb }}" alt="">
+                                        <div class="status">
+                                            <span class="favo">♡99,999</span>
+                                            <span class="time">2:10</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="clipInfo">
+                                    <div class="clipTitle"><a
+                                                href="{{ siteUrl('recipe') }}/{{ recipe.id }}">{{ recipe.title }}</a>
+                                    </div>
+                                    <div class="userName">
+                                        <a href="{{ siteUrl('recipe') }}/{{ recipe.id }}"><span>{{ recipe.member_name }}</span></a>
+                                    </div>
+                                    {% set tags = recipe.tag|split(',') %}
+                                    <ul class="tagList">
+                                        {% for tag in tags %}
+                                            <li><a href="">{{ tag }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <ul class="pagination">
+                        {{ pager|raw }}
+                    </ul>
+                </section>
+            </article>
+        </div>
+    </div>
 {% endblock %}

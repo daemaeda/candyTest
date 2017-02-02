@@ -34,6 +34,9 @@ Class RecipeController extends Controller
         $Recipe = new Recipe();
         $Tag = new Tag();
         try {
+            $this->data['categoryName'] = $Tag->findTag($category);
+            $this->data['sceneName'] = $Tag->findTag($scene);
+
             $this->data['categories'] = $Tag->getCategory();
             $this->data['scenes'] = $Tag->getScene();
             $findRecipes = $Recipe->findRecipe($category, $scene, $aryKeyword);
