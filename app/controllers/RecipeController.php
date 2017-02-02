@@ -266,13 +266,12 @@ Class RecipeController extends Controller
         try {
             DB::table('recipe')->where('id', $id)->increment('view');
             $findRecipe = $Recipe::findOrFail($id);
-            $MemberFav->setRecipeId($id);
-            $TagRecipeRelations->setRecipeId($id);
-            $this->data['relatedVideos'] = $Recipe->findRelatedVideo($TagRecipeRelations->getTags());
-            $this->data['favorite'] = $MemberFav->isFavorite();
+            $recipeTag = $TagRecipeRelations->getTags($id);
+            $this->data['relatedVideos'] = $Recipe->findRelatedVideo($recipeTag);
+            $this->data['favorite'] = $MemberFav->isFavorite($id);
             $this->data['title'] = $findRecipe->title;
             $this->data['recipe'] = $findRecipe;
-            $this->data['tags'] = $TagRecipeRelations->getTags();
+            $this->data['tags'] = $recipeTag;
             App::render('recipe/show.twig', $this->data);
         } catch (\SQLiteException $e) {
             App::flash('messageError', "データベースエラーが発生しました。管理者にお問い合わせください。");

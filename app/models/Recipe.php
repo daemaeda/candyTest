@@ -41,15 +41,16 @@ class Recipe extends Model
 
     public function findRelatedVideo($tags)
     {
-        $findRecipe = DB::table('recipe')
-            ->join('tag_recipe_relations', 'recipe.id', '=', 'tag_recipe_relations.recipe_id');
-        foreach ($tags as $tag) {
-            $findRecipe->orWhere('tag_recipe_relations.tag_id', 1);
-        }
-        $findRecipe->groupBy('recipe.id');
-        $findRecipe->orderBy('recipe.love', 'desc')->orderBy('recipe.view', 'desc');
-        $findRecipe->take(10);
-        return $findRecipe->get();
+        return DB::table('recipe')
+            ->join('tag_recipe_relations', 'recipe.id', '=', 'tag_recipe_relations.recipe_id')
+            ->join('tag', 'tag_recipe_relations.tag_id', '=', 'tag.id')
+            ->select('recipe.*')
+            ->selectRaw('GROUP_CONCAT(tag.name) as tag')
+            ->whereIn('tag_recipe_relations.tag_id', array_column($tags->toArray(), 'tag_id'))
+            ->groupBy('recipe.id')
+            ->orderBy('recipe.love', 'desc')->orderBy('recipe.view', 'desc')
+            ->take(10)
+            ->get();
     }
 
     public function findRecipe($category, $scene, $aryKeyword)
