@@ -264,6 +264,7 @@ Class RecipeController extends Controller
         $MemberFav = new MemberFavoriteRecipe();
         $TagRecipeRelations = new TagRecipeRelations();
         try {
+            DB::table('recipe')->where('id', '=', $id)->increment('view');
             $findRecipe = $Recipe::findOrFail($id);
             $MemberFav->setRecipeId($id);
             $TagRecipeRelations->setRecipeId($id);
