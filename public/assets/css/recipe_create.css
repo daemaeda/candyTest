@@ -1,0 +1,80 @@
+@charset 'utf-8';
+
+.overlay {
+	opacity: 0.4;
+}
+.video {
+	width: 960px;
+	margin-bottom: 40px;
+	padding: 150px 20px;
+	background-color: #eee;
+}
+input[type="text"] {
+	width: 50%;
+	padding: 3px;
+	font-size: 14px;
+	
+}
+input,textarea {
+	border: solid 1px #ccc;
+}
+textarea {
+	width: 98%;
+}
+.errorMessage {
+	color: red;
+	display: inline;
+}
+
+.clipInfo .ttl02 input {
+	width: 100%;
+	color: #4d2d29;
+	font-size: 24px;
+	font-weight: bold;
+}
+.clipInfo .ttl03 {
+	clear: both;
+}
+.user a,
+.favoArea a,
+.review textarea,
+.review a, 
+aside a {
+	pointer-events: none;
+}
+
+.tagList {
+	letter-spacing: normal;
+}
+.tagList li {
+	padding: 0 4px;
+}
+.addIngredient {
+	float: right;
+	margin-top: 4px;
+	padding: 4px 8px;
+	color: #fff;
+	border-radius: 3px;
+	background-color: #f78f82;
+}
+section.comment {
+	margin-bottom: 20px;
+}
+.button {
+	border: none;
+}
+input[type="submit"] {
+	width: 100%;
+	margin-bottom: 12px;
+	padding: 8px 0;
+	color: #fff;
+	font-size: 20px;
+	border-radius: 3px;
+	border: none;
+	background-color: #f78f82;
+}
+@media only screen and (max-width: 768px) {
+	aside {
+		display: none;
+	}
+}

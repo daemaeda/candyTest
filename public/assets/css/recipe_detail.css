@@ -8,8 +8,7 @@ video {
 	margin-bottom: 40px;
 }
 article {
-	width: 660px;
-	margin-right: 20px;
+	width: 68.75%;
 	padding: 0 20px;
 	float: left;
 }
@@ -25,6 +24,26 @@ article section .ttl03 {
 	margin-left: 16px;
 	font-size: 14px;
 }
+
+@media only screen and (max-width: 768px) {
+	video {
+		margin-bottom: 10px;
+	}
+	article {
+		width: 100%;
+		padding: 0 15px;
+		float: none;
+	}
+	article section {
+		padding: 8px 0;
+	}
+	.ttl03 span {
+		margin-left: 8px;
+		font-size: 12px;
+	}
+
+}
+
 
 .clipInfo {
 	padding: 0;
@@ -45,7 +64,7 @@ article section .ttl03 {
 	display: inline-block;
 	width: 40px;
 	vertical-align: middle;
-	border-radius: 40px;
+	border-radius: 20px;
 	border: solid 1px #aaa;
 	overflow: hidden;
 }
@@ -74,7 +93,6 @@ article section .ttl03 {
 }
 .favoArea a.on {
 	background: url(../img/favo_on.png) no-repeat;
-
 }
 .tagList {
 	margin-bottom: 8px;
@@ -82,6 +100,30 @@ article section .ttl03 {
 }
 .tagList li {
 	margin: 0 8px 8px 0;
+}
+
+@media only screen and (max-width: 768px) {
+	.user {
+		margin-bottom: 16px;
+		letter-spacing: -.4em;
+		float: left;
+	}
+	.userIcon {
+		width: 30px;
+		border-radius: 15px;
+	}
+	.userName {
+		margin-left: 10px;
+		font-size: 12px;
+	}
+
+	.favoArea {
+		margin: 0;
+		float: right;
+	}
+	.tagList {
+		margin-bottom: 4px;
+	}
 }
 
 .ingredient table {
@@ -106,6 +148,9 @@ article section .ttl03 {
 	text-align: right;
 }
 
+section.comment {
+	margin-bottom: 80px;
+}
 .commentList {
 	margin-bottom: 24px;
 }
@@ -140,14 +185,14 @@ article section .ttl03 {
 	clear: left;
 }
 .review textarea {
-	width: 500px;
-	resize: none;
+	width: 79%;
+	height: 50px;
 	float: left;
 }
 .review .postReview {
 	display: block;
-	width: 80px;
-	margin-left: 34px;
+	width: 13%;
+	margin: 16px 0 0 5%;
 	padding: 4px 0;
 	color: #fff;
 	text-align: center;
@@ -157,13 +202,9 @@ article section .ttl03 {
 }
 
 
-aside {
-	width: 280px;
-	padding-right: 20px;
-	float: right;
+@media only screen and (max-width: 768px) {
+	
 }
-
-
 
 
 

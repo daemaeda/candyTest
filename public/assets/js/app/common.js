@@ -1,4 +1,5 @@
 $(function() {
+	
 	var $header = $('header');
 	var $search = $('.clip-search');
 	// Nav Fixed

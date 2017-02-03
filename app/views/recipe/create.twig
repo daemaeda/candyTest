@@ -1,6 +1,156 @@
 {% extends 'master.twig' %}
 
 {% block body %}
+<div id="breadcrumb">
+	<div class="contentIn">
+		<ul>
+			<li><a href="{{ siteUrl('/') }}">TOP</a></li>
+			<li>{{ title }}</li>
+		</ul>
+	</div>
+</div>
+<div id="wrapper">
+
+	<div class="contentIn">
+		{% include 'include/flashMessage.twig' %}
+		<form action="{{ siteUrl('recipe') }}" method="post" enctype="multipart/form-data">
+			<div class="video">
+				<h2 class="ttl03">レシピ動画（必須）</h2>
+				<input type="file" name="clip" accept="video/*">
+				<p class="errorMessage"> {{ flash.video }}</p>
+			</div>
+			<article>
+				<section class="clipInfo">
+					<h2 class="ttl02"><input type="text" name="title" value="{{ flash.input.title|default('ケーキ') }}">
+						<p class="errorMessage"> {{ flash.recipe.title|first }}</p>
+						<span class="count overlay">0</span><span class="overlay">views</span></h2>
+					<div class="user fL overlay">
+						<a href="">
+							<span class="userIcon"><img src="/candy/public/assets/img/c_pink.png" alt=""></span>
+							<span class="userName">ハル
+							</span>
+						</a>
+					</div>
+					<div class="favoArea fR overlay">
+						<a class="toggleFavorite {% if favorite %}on{% endif %}" href="#">0
+						</a>
+					</div>
+					<h2 class="ttl03">この動画につけるタグ（必須）</h2>
+					<p class="errorMessage"> {{ flash.tag }}</p>
+					<div class="tagList">
+						<ul>
+						{% for tag in tags %}
+						{% set selected = false %}
+						{% for inputTag in flash.input.tag %}
+						{% if inputTag == tag.id %}
+						{% set selected = true %}
+						{% endif %}
+						{% endfor %}
+						<li><input type="checkbox" name="tag[]" value="{{ tag.id }}" {% if selected %}checked{% endif %} id="tag_{{ tag.id }}">
+							<label for="tag_{{ tag.id }}">{{ tag.name }}</label></li>
+						{% endfor %}
+					</div>
+				</section>
+				<section class="description">
+					<h2 class="ttl03">説明</h2>
+					<textarea name="explain" rows="3">{{ flash.input.explain|default('いちごが美味しく味わえるケーキです。') }}</textarea>
+					<p class="errorMessage"> {{ flash.recipe.explain|first }}</p>
+				</section>
+				<section class="ingredient">
+					<h2 class="ttl03">材料<span>（<input type="text" name="servings_for" placeholder="何人分・何個分" value="{{ flash.input.servings_for|default('１人分') }}">
+						<p class="errorMessage"> {{ flash.recipe.servings_for|first }}</p>）</span></h2>
+					<p class="errorMessage"> {{ flash.ingredientError|default('') }}</p>
+					<table class="ingredientList">
+						{% if flash.ingredients | length > 0 %}
+							{% for key, ingredient in flash.ingredients %}
+								<tr>
+									<th><input type="text" name="name[]" value="{{ ingredient.name }}" placeholder="材料"></th>
+									<td><input type="text" name="quantity[]" value="{{ ingredient.quantity }}" placeholder="分量"></td>
+									<p class="errorMessage"> {{ flash.ingredientErrors[key]|default('') }}</p>
+								</tr>
+							{% endfor %}
+						{% else %}
+							{% for i in 0..3 %}
+								<tr>
+									<th><input type="text" name="name[]" value="" placeholder="材料"></th>
+									<td><input type="text" name="quantity[]" value="" placeholder="分量"></td>
+								</tr>
+							{% endfor %}
+						{% endif %}
+					</table>
+					<a href="#" class="addIngredient">材料追加</a>
+				</section>
+				<section class="point">
+					<h2 class="ttl03">コツ・ポイント</h2>
+					<textarea name="point" id="" cols="30" rows="10">{{ flash.input.point|default('混ぜるときはゆっくりと。') }}</textarea>
+					<p class="errorMessage"> {{ flash.recipe.point|first }}</p>
+				</section>
+				<section class="mistake">
+					<h2 class="ttl03">失敗談</h2>
+					<textarea name="mistake" id="" cols="30" rows="10">{{ flash.input.mistake|default('強く混ぜすぎると粘り気の強い生地になってしまいます。') }}</textarea>
+					<p class="errorMessage"> {{ flash.recipe.mistake|first }}</p>
+				</section>
+				<section class="comment overlay">
+					<h2 class="ttl03">感想や質問<span class="commentCount">(0件)</span></h2>
+					<div class="commentList">
+						<ul>
+							{% for review in recipe.review().getResults() %}
+							<li>
+								<a href="{{ siteUrl('user') }}/{{ review.member_id }}">
+									<div class="userIcon"><img src="/candy/public/assets/img/{{recipe.member().getResults().img_url}}" alt=""></div>
+									<span class="userName">{{ review.member().getResults().name }}</span>
+								</a>
+								<p class="date">{{ review.created_at|date('Y年m月d日 H:i') }}</p>
+								<p class="comment">
+									{{ review.comment }}
+								</p>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="review">
+						<textarea name="comment" id="reviewComment" readonly></textarea>
+						<a data-member-id="{{ userId }}" data-recipe-id="{{ recipe.id }}" data-member-name="{{ userName }}"
+						   class="postReview" href="#">
+							<span>投稿</span>
+						</a>
+					</div>
+				</section>
+				<section class="button">
+					<input type="submit" name="登録" value="入力内容を確認">
+				</section>
+			</article>
+		</form>
+		<aside class="related overlay">
+			<h2 class="ttl01">この動画に関連する動画<span>Related Clip</span></h2>
+			<ul class="clipList related">
+				<li>
+					<div class="thumb">
+						<a href="">
+							<img src="/candy/public/assets/img/dummy.png" alt="">
+							<div class="status">
+								<span class="favo">♡0</span>
+								<span class="time">0:00</span>
+							</div>
+						</a>
+					</div>
+					<div class="clipInfo">
+						<div class="clipTitle"><a href="">ダミー</a></div>
+						<div class="userName">
+							<a href=""><span>dummy</span></a>
+						</div>
+						<ul class="tagList">
+							<li><a href="">だみー</a></li>
+							<li><a href="">ダミー</a></li>
+							<li><a href="">ダミィ</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</aside>
+	</div>
+</div>
+<!--
     <div class="contents">
         <article>
             <section>
@@ -99,4 +249,5 @@
             </section>
         </article>
     </div>
+-->
 {% endblock %}

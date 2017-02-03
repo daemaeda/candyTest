@@ -108,7 +108,7 @@ header .contentIn {
 	display: block;
 	width: 100%;
 	height: 4px;
-	background: #666;
+	background-color: #aaa;
 	position: absolute;
 	left: 0;
 	-webkit-transition: .35s ease-in-out;
@@ -188,7 +188,7 @@ header .contentIn {
 	header.fixed #header-nav ul li a {
 		width: 100%;
 		display: block;
-		color: #fff;
+		color: #4d2d29;
 		padding: 18px 0;
 	}
 	#nav-toggle {
@@ -388,7 +388,7 @@ header .contentIn {
 	}
 	#wrapper .contentIn {
 		max-width: 100%;
-		padding: 60px 2%;
+		padding: 80px 2%;
 	}
 }
 

@@ -1,0 +1,25 @@
+@charset 'utf-8';
+
+header {
+	background: none;
+	border-bottom: none;
+}
+video {
+	width: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: -1;
+	background: #000;
+	opacity: 0.8;
+}
+video p {
+	width: 100%;
+	background: #000;
+	position: absolute;
+	top: 0;
+}
+.clip-search {
+	margin-top: 500px;
+}
+

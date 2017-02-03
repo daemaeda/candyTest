@@ -8,6 +8,8 @@ Class HomeController extends Controller
     public function index()
     {
         $this->data['title'] = 'Candy Clip';
+		
+		$this->loadCss('index.css');
 
 		// レシピテーブル（ORM）
 		$Recipe = new Recipe();

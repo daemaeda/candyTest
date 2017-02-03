@@ -24,6 +24,13 @@ ul:after, header:after, section:after, .clearfix:after,
 .fR { float: right; }
 .fL { float: left; }
 
+textarea {
+	padding: .5em;
+	font-size: 14px;
+	border: solid 1px #aaa;
+	resize: none;
+}
+
 @media only screen and (max-width: 768px) {
 	body {
 		font-size: 12px;
@@ -43,8 +50,8 @@ ul:after, header:after, section:after, .clearfix:after,
 .ttl01 {
 	line-height: 1.5;
 	font-size: 16px;
-	
 	font-weight: normal;
+	white-space: nowrap;
 }
 .ttl01 span {
 	display: block;
@@ -110,6 +117,10 @@ ul:after, header:after, section:after, .clearfix:after,
 	transition: .4s;
 	text-decoration: underline;
 }
+.clipList .userName {
+	margin: 0;
+	font-size: 12px;
+}
 .tagList {
 	margin-top: 8px;
 	letter-spacing: -.4em;
@@ -142,66 +153,56 @@ ul:after, header:after, section:after, .clearfix:after,
 	.clipList > li + li {
 		margin-left: 4.25%;
 	}
+}
+@media only screen and (max-width: 600px) {
+	.clipList > li {
+		width: 45.5%;
+		margin-bottom: 40px;
+		float: left;
+	}
+	.clipList > li + li {
+		margin-left: 4.25%;
+	}
 	.clipList > li:nth-child(3n+1) {
+		margin-left: 4.25%;
+		clear: none;
+	}
+	.clipList > li:nth-child(5n-1) {
+		float: left;
+	}
+	.clipList > li:nth-child(2n+1) {
 		margin-left: 0;
 		clear: left;
 	}
-	.clipList .thumb {
-		position: relative;
-	}
-	.clipList .status {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-	}
-	.clipList .status .favo,
-	.clipList .status .time {
-		display: inline-block;
-		padding: 0 3px;
-		color: #fff;
-		font-size: 12px;
-		text-align: center;
-		background: rgba(0,0,0,0.5);
-	}
-	.clipList .clipTitle {
-		margin: 8px 0 4px;
-		font-size: 16px;
-		font-weight: bold;
-	}
-	.clipList .clipTitle a {
-		color: #f78f82;
-	}
-	.clipList .clipTitle a:hover,
-	.clipList .userName a:hover {
-		opacity: 1;
-		transition: .4s;
-		text-decoration: underline;
-	}
-	.tagList {
-		margin-top: 8px;
-		letter-spacing: -.4em;
-	}
-	.tagList li {
-		display: inline-block;
-		margin: 0 4px 4px 0;
-		letter-spacing: normal;
-		border-radius: 3px;
-		border: solid 1px #f78f82;
-	}
-	.tagList a {
-		padding: 0 4px;
-		color: #f78f82;
-		font-size: 12px;
-		display: block;
-	}
-	.tagList li:hover a {
-		color: #fff;
-		opacity: 1;
-		transition: .4s;
-		background-color: #f78f82;
-	}
 }
 
+
+
+aside.related {
+	width: 29.1%;
+	padding: 0 20px;
+	border-left: solid 1px #aaa;
+	float: right;
+}
+.clipList.related > li {
+	width: 100%;
+	margin: 0 0 16px;
+	border-bottom: solid 1px #aaa;
+	float: none;
+}
+.clipList.related .clipTitle {
+	margin: 4px 0 0;
+	font-size: 14px;
+}
+.clipList.related .tagList {
+	margin-top: 4px;
+}
+@media only screen and (max-width: 768px){
+	aside.related {
+		width: 100%;
+		float: none;
+	}
+}
 
 
 
