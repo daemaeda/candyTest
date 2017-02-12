@@ -10,7 +10,7 @@ class Model extends \Illuminate\Database\Eloquent\Model
     use SoftDeletes;
     protected $errors;
     protected $count = 0;
-    protected $perPage = 10;
+    protected $perPage = 12;
     protected $maxPage = 10;
 
     protected static function rules()
