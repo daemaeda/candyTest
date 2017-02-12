@@ -63,22 +63,24 @@ class Recipe extends Model
             ->selectRaw('GROUP_CONCAT(tag.name) as tag')
             ->groupBy('recipe.id');
 
+        $findRecipe->whereIn('recipe.id', function ($query) use ($category, $scene) {
+            $query->select('recipe_id')
+                ->from('tag_recipe_relations');
+            if (strlen($category) > 0) {
+                $query->orWhere('tag_id', $category);
+            }
+            if (strlen($scene) > 0) {
+                $query->orWhere('tag_id', $scene);
+            }
+        });
+        
         foreach ($aryKeyword as $value) {
-            $findRecipe->orWhere('title', 'like', '%' . $value . '%');
+            if (strlen($value) > 0) {
+                $findRecipe->where('title', 'like', '%' . $value . '%');
+            }
         }
-
-        if (strlen($category) != 0) {
-            $findRecipe->where('tag_recipe_relations.tag_id', $category);
-        }
-
-        if (strlen($scene) != 0) {
-            $findRecipe->where('tag_recipe_relations.tag_id', $scene);
-        }
-
-
         $findRecipe->orderBy('recipe.created_at', 'desc');
         return $findRecipe;
-
     }
 
 }
