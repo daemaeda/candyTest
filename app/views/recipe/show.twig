@@ -35,7 +35,7 @@
 					<div class="tagList">
 						<ul>
 							{% for tag in tags %}
-							<li><a href="">{{ tag.tag().getResults().name }}</a></li>
+							<li><a href="{{ siteUrl('recipe') }}?tagId={{ tag.tag().getResults().id }}">{{ tag.tag().getResults().name }}</a></li>
 							{% endfor %}
 						</ul>
 					</div>
