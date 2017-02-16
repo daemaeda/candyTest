@@ -3,23 +3,44 @@
 header {
 	background: none;
 	border-bottom: none;
+	background-size: cover;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
 }
-video {
-	width: 100%;
+#header-nav li a {
+	color: #fff;
+}
+#mainVisual {
+	margin-top: -66px;
+	position: relative;
+	background-color: rgba(0,0,0,0.6);
+}
+#mainVisual img {
+	width: auto;
 	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
 	right: 0;
-	top: 0;
-	z-index: -1;
-	background: #000;
-	opacity: 0.8;
+	bottom: 0;
+	margin: auto;
 }
-video p {
+#mainVisual video {
 	width: 100%;
-	background: #000;
-	position: absolute;
-	top: 0;
+	position: relative;
+	z-index: -1;
 }
 .clip-search {
-	margin-top: 500px;
+	margin-top: -8px;
+	position: relative;
 }
 
+@media only screen and (max-width: 768px) {
+	.clip-search {
+		position: absolute;
+	}
+	article {
+		
+	}
+}
