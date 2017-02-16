@@ -26,10 +26,11 @@
                                     <div class="userName">
                                         <a href="{{ siteUrl('recipe') }}/{{ recipe.id }}"><span>{{ recipe.member_name }}</span></a>
                                     </div>
-                                    {% set tags = recipe.tag|split(',') %}
+                                    {% set tagNames = recipe.tag_name|split(',') %}
+                                    {% set tagId = recipe.tag_id|split(',') %}
                                     <ul class="tagList">
-                                        {% for tag in tags %}
-                                            <li><a href="">{{ tag }}</a></li>
+                                        {% for i,tag in tagNames %}
+                                            <li><a href="{{ siteUrl('recipe') }}?tagId={{ tagId[i] }}">{{ tag }}</a></li>
                                         {% endfor %}
                                     </ul>
                                 </div>

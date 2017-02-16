@@ -60,7 +60,8 @@ class Recipe extends Model
             ->join('tag', 'tag_recipe_relations.tag_id', '=', 'tag.id')
             ->join('member', 'member.id', '=', 'recipe.member_id')
             ->select('recipe.*', 'member.name AS member_name')
-            ->selectRaw('GROUP_CONCAT(tag.name) as tag')
+            ->selectRaw('GROUP_CONCAT(tag.name) as tag_name')
+            ->selectRaw('GROUP_CONCAT(tag.id) as tag_id')
             ->groupBy('recipe.id');
 
         $findRecipe->whereIn('recipe.id', function ($query) use ($category, $scene) {

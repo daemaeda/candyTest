@@ -23,6 +23,7 @@ Class RecipeController extends Controller
         $keyword = Input::get('keyword');
         $category = Input::get('category');
         $scene = Input::get('scene');
+        $tagId = Input::get('tagId');
 
         $this->data['inputKeyword'] = $keyword;
         $this->data['inputCategory'] = $category;
@@ -36,6 +37,18 @@ Class RecipeController extends Controller
         try {
             $this->data['categoryName'] = $Tag->findTag($category);
             $this->data['sceneName'] = $Tag->findTag($scene);
+            if(strlen($tagId) != 0) {
+                $findTag = $Tag->findTag($tagId)->first()->toArray();
+                if(CATEGORY == $findTag['type']) {
+                    $category = $findTag['id'];
+                    $this->data['categoryName'] = $findTag['name'];
+                    $this->data['inputCategory'] = $findTag['id'];
+                } else {
+                    $scene = $findTag['id'];
+                    $this->data['sceneName'] = $findTag['name'];
+                    $this->data['inputScene'] = $findTag['id'];
+                }
+            }
 
             $this->data['categories'] = $Tag->getCategory();
             $this->data['scenes'] = $Tag->getScene();
