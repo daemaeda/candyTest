@@ -21,14 +21,13 @@
 			</div>
 			<article>
 				<section class="clipInfo">
-					<h2 class="ttl02"><input type="text" name="title" value="{{ flash.input.title|default('ケーキ') }}">
+					<h2 class="ttl03">タイトル（必須）<input type="text" name="title" value="{{ flash.input.title|default('ケーキ') }}">
 						<p class="errorMessage"> {{ flash.recipe.title|first }}</p>
 						<span class="count overlay">0</span><span class="overlay">views</span></h2>
 					<div class="user fL overlay">
 						<a href="">
 							<span class="userIcon"><img src="/candy/public/assets/img/c_pink.png" alt=""></span>
-							<span class="userName">ハル
-							</span>
+							<span class="userName">ハル</span>
 						</a>
 					</div>
 					<div class="favoArea fR overlay">
@@ -46,34 +45,34 @@
 						{% set selected = true %}
 						{% endif %}
 						{% endfor %}
-						<li><input type="checkbox" name="tag[]" value="{{ tag.id }}" {% if selected %}checked{% endif %} id="tag_{{ tag.id }}">
-							<label for="tag_{{ tag.id }}">{{ tag.name }}</label></li>
+							<li><label for="tag_{{ tag.id }}"><input type="checkbox" name="tag[]" value="{{ tag.id }}" {% if selected %}checked{% endif %} id="tag_{{ tag.id }}">
+							{{ tag.name }}</label></li>
 						{% endfor %}
 					</div>
 				</section>
 				<section class="description">
-					<h2 class="ttl03">説明</h2>
+					<h2 class="ttl03">説明（必須）</h2>
 					<textarea name="explain" rows="3">{{ flash.input.explain|default('いちごが美味しく味わえるケーキです。') }}</textarea>
 					<p class="errorMessage"> {{ flash.recipe.explain|first }}</p>
 				</section>
 				<section class="ingredient">
 					<h2 class="ttl03">材料<span>（<input type="text" name="servings_for" placeholder="何人分・何個分" value="{{ flash.input.servings_for|default('１人分') }}">
-						<p class="errorMessage"> {{ flash.recipe.servings_for|first }}</p>）</span></h2>
+						<p class="errorMessage"> {{ flash.recipe.servings_for|first }}</p>）</span>（必須）</h2>
 					<p class="errorMessage"> {{ flash.ingredientError|default('') }}</p>
 					<table class="ingredientList">
 						{% if flash.ingredients | length > 0 %}
 							{% for key, ingredient in flash.ingredients %}
 								<tr>
-									<th><input type="text" name="name[]" value="{{ ingredient.name }}" placeholder="材料"></th>
-									<td><input type="text" name="quantity[]" value="{{ ingredient.quantity }}" placeholder="分量"></td>
+									<th><input type="text" name="name[]" value="{{ ingredient.name|default('いちご') }}" placeholder="材料"></th>
+									<td><input type="text" name="quantity[]" value="{{ ingredient.quantity|default('１個') }}" placeholder="分量"></td>
 									<p class="errorMessage"> {{ flash.ingredientErrors[key]|default('') }}</p>
 								</tr>
 							{% endfor %}
 						{% else %}
 							{% for i in 0..3 %}
 								<tr>
-									<th><input type="text" name="name[]" value="" placeholder="材料"></th>
-									<td><input type="text" name="quantity[]" value="" placeholder="分量"></td>
+									<th><input type="text" name="name[]" value="いちご" placeholder="材料"></th>
+									<td><input type="text" name="quantity[]" value="１こ" placeholder="分量"></td>
 								</tr>
 							{% endfor %}
 						{% endif %}
@@ -81,12 +80,12 @@
 					<a href="#" class="addIngredient">材料追加</a>
 				</section>
 				<section class="point">
-					<h2 class="ttl03">コツ・ポイント</h2>
+					<h2 class="ttl03">コツ・ポイント（必須）</h2>
 					<textarea name="point" id="" cols="30" rows="10">{{ flash.input.point|default('混ぜるときはゆっくりと。') }}</textarea>
 					<p class="errorMessage"> {{ flash.recipe.point|first }}</p>
 				</section>
 				<section class="mistake">
-					<h2 class="ttl03">失敗談</h2>
+					<h2 class="ttl03">失敗談（必須）</h2>
 					<textarea name="mistake" id="" cols="30" rows="10">{{ flash.input.mistake|default('強く混ぜすぎると粘り気の強い生地になってしまいます。') }}</textarea>
 					<p class="errorMessage"> {{ flash.recipe.mistake|first }}</p>
 				</section>

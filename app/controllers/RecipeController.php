@@ -29,7 +29,8 @@ Class RecipeController extends Controller
         $this->data['inputCategory'] = $category;
         $this->data['inputScene'] = $scene;
 
-        $aryKeyword = preg_split('/[　 ]/', $keyword);
+		$keyword = mb_convert_kana($keyword, 's');
+		$aryKeyword = preg_split('/[\s]+/', $keyword, -1, PREG_SPLIT_NO_EMPTY);
 
         // レシピテーブル（ORM）
         $Recipe = new Recipe();

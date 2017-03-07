@@ -37,10 +37,13 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
+	#wrapper .contentIn {
+		padding: 20px 2%;
+	}
 	.clip-search {
 		position: absolute;
 	}
-	article {
-		
+	#mainVisual {
+		display: none;
 	}
 }

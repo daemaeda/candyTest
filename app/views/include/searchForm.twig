@@ -1,7 +1,7 @@
 <div class="clip-search">
 	<div class="contentIn">
 		<h2 class="ttl01">お菓子動画を探す<span>Clip Search</span></h2>
-		<form action="{{ siteUrl('recipe') }}" method="get">
+		<form action="{{ siteUrl('recipe') }}" method="get" accept-charset="utf-8">
 			{% set inputCategory = inputCategory|default('') %}
 			<select name="category" id="">
 				<option value="">カテゴリ</option>

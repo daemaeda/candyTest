@@ -33,6 +33,7 @@ textarea {
 	font-weight: bold;
 }
 .clipInfo .ttl03 {
+	margin-bottom: 30px;
 	clear: both;
 }
 .user a,
@@ -47,8 +48,70 @@ aside a {
 	letter-spacing: normal;
 }
 .tagList li {
+	height: 27px;
 	padding: 0 4px;
 }
+
+
+label {
+	cursor       : pointer;
+	overflow     : hidden;
+	position     : relative;
+	padding-left : 20px;
+	display      : inline-block;
+	box-sizing   : border-box;
+}
+label:before {
+	content  : '';
+	position : absolute;
+	width    : 10px;
+	height   : 10px;
+	left     : 3px;
+	top      : 5px;
+	border   : 1px solid #B3B3B3;
+	z-index  : 3;
+}
+label:after {
+	content           : '';
+	position          : absolute;
+	top               : 20%;
+	left              : 6px;
+	display           : block;
+	width             : 4px;
+	height            : 7px;
+	border-right      : 2px solid #D65;
+	border-bottom     : 2px solid #D65;
+	transform         : rotate(45deg);
+	-webkit-transform : rotate(45deg);
+	-moz-transform    : rotate(45deg);
+	z-index           : 1;
+}
+label input[type="checkbox"] {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	position   : absolute;
+	top: 5px;
+	left       : -83px;
+	width      : 13px;
+	height     : 13px;
+	display    : block;
+	box-shadow : 85px 0px #FFF;
+	z-index    : 2;
+	margin     : 0px;
+	padding    : 0px;
+}
+label input[type="checkbox"]:checked {
+	box-shadow : none;
+}
+label input[type="checkbox"]:checked:focus {
+	box-shadow : 30px 0px #666;
+	opacity    : 0.1;
+}
+label input[type="checkbox"]:focus {
+	box-shadow : 31px 0px #EEE;
+}
+
+
 .addIngredient {
 	float: right;
 	margin-top: 4px;

@@ -70,11 +70,16 @@ class Recipe extends Model
             if (strlen($category) > 0) {
                 $query->orWhere('tag_id', $category);
             }
-            if (strlen($scene) > 0) {
-                $query->orWhere('tag_id', $scene);
-            }
         });
-        
+		
+		$findRecipe->whereIn('recipe.id', function ($query) use ($category, $scene) {
+			$query->select('recipe_id')
+				->from('tag_recipe_relations');
+			if (strlen($scene) > 0) {
+				$query->orWhere('tag_id', $scene);
+			}
+		});
+	
         foreach ($aryKeyword as $value) {
             if (strlen($value) > 0) {
                 $findRecipe->where('title', 'like', '%' . $value . '%');
